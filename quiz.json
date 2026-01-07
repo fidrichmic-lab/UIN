@@ -3,808 +3,1571 @@
   "shuffleQuestions": true,
   "shuffleOptions": true,
   "questions": [
-    {
-      "id": 1,
-      "topic": "Grafy",
-      "question": "Co je graf?",
-      "options": {
-        "A": "Množina stavů bez hran",
-        "B": "Souvislý graf bez cyklů (strom)",
-        "C": "Množina vrcholů (uzlů) propojených hranami",
-        "D": "Tabulka 0/1 popisující hrany"
-      },
-      "correct": ["C"],
-      "explanation": "Graf tvoří vrcholy a hrany, které reprezentují vztahy/přechody mezi uzly."
+  {
+    "id": 1,
+    "topic": "Grafy",
+    "question": "Vyberte správná tvrzení o grafu a rozdílu orientovaný vs. neorientovaný.",
+    "options": {
+      "A": "Graf je tvořen vrcholy (uzly) a hranami",
+      "B": "Hrany mohou reprezentovat operátory/přechody",
+      "C": "V orientovaném grafu mají hrany směr (pořadí uzlů na hraně)",
+      "D": "V neorientovaném grafu mají hrany směr",
+      "E": "Každý graf musí být orientovaný"
     },
-    {
-      "id": 2,
-      "topic": "Grafy",
-      "question": "Které tvrzení platí pro orientovaný graf?",
-      "options": {
-        "A": "Hrany nemají směr",
-        "B": "U hrany je definováno pořadí (odkud–kam)",
-        "C": "Neexistují cykly",
-        "D": "Musí být úplný"
-      },
-      "correct": ["B"],
-      "explanation": "V orientovaném grafu má každá hrana směr (pořadí uzlů na hraně)."
+    "correct": ["A", "B", "C"],
+    "explanation": "Graf = uzly+hrany; orientovaný graf má směr hran."
+  },
+  {
+    "id": 2,
+    "topic": "Grafy",
+    "question": "Vyberte správná tvrzení o pojmech sled, tah a cesta.",
+    "options": {
+      "A": "Sled může opakovat vrcholy i hrany",
+      "B": "Tah může opakovat vrcholy, ale ne hrany",
+      "C": "Cesta nesmí opakovat vrcholy ani hrany",
+      "D": "Tah nesmí opakovat vrcholy",
+      "E": "Cesta je vždy uzavřená"
     },
-    {
-      "id": 3,
-      "topic": "Grafy",
-      "question": "Vyberte správná tvrzení o: sled / tah / cesta.",
-      "options": {
-        "A": "Ve sledu se mohou opakovat vrcholy i hrany",
-        "B": "V tahu se nesmí opakovat hrany (vrcholy se mohou)",
-        "C": "V cestě se nesmí opakovat vrcholy ani hrany",
-        "D": "V cestě se mohou opakovat hrany, ale ne vrcholy"
-      },
-      "correct": ["A", "B", "C"],
-      "explanation": "Sled dovolí opakování všeho; tah zakazuje opakování hran; cesta zakazuje opakování vrcholů i hran."
+    "correct": ["A", "B", "C"],
+    "explanation": "Sled: opakování povoleno; tah: hrany bez opakování; cesta: vrcholy i hrany bez opakování."
+  },
+  {
+    "id": 3,
+    "topic": "Grafy",
+    "question": "Vyberte správná tvrzení o Eulerovském tahu a kružnici.",
+    "options": {
+      "A": "Eulerovský tah projde každou hranu právě jednou",
+      "B": "Eulerovská kružnice je eulerovský tah se stejným startem i koncem",
+      "C": "Eulerovské úlohy se týkají průchodu vrcholy (ne hranami)",
+      "D": "Souvislost grafu je relevantní pro existenci eulerovských vlastností",
+      "E": "Eulerovský tah vždy projde každý vrchol právě jednou"
     },
-    {
-      "id": 4,
-      "topic": "Grafy",
-      "question": "Eulerovský tah je…",
-      "options": {
-        "A": "Tah, který projde každý vrchol právě jednou",
-        "B": "Tah, ve kterém nezůstane neprozkoumaná hrana",
-        "C": "Cesta s minimální cenou",
-        "D": "Kružnice, která obsahuje všechny vrcholy"
-      },
-      "correct": ["B"],
-      "explanation": "Eulerovský tah projde všechny hrany (žádná hrana nezůstane neprozkoumaná)."
+    "correct": ["A", "B", "D"],
+    "explanation": "Euler řeší hrany; kružnice je uzavřený tah."
+  },
+  {
+    "id": 4,
+    "topic": "Grafy",
+    "question": "Vyberte správná tvrzení o Hamiltonovské cestě/kružnici a rozdílu vůči Eulerovi.",
+    "options": {
+      "A": "Hamiltonovská cesta navštíví každý vrchol právě jednou",
+      "B": "Hamiltonovská kružnice se vrací do počátečního vrcholu",
+      "C": "Hamiltonovské problémy jsou o hranách (stejně jako Euler)",
+      "D": "Eulerovské problémy jsou o hranách, Hamiltonovské o vrcholech",
+      "E": "Hamiltonovská cesta vyžaduje průchod každou hranou právě jednou"
     },
-    {
-      "id": 5,
-      "topic": "Grafy",
-      "question": "Eulerovská kružnice je…",
-      "options": {
-        "A": "Eulerovský tah, který začíná a končí ve stejném vrcholu",
-        "B": "Hamiltonovská cesta",
-        "C": "Tah bez opakování vrcholů",
-        "D": "Graf bez cyklů"
-      },
-      "correct": ["A"],
-      "explanation": "Eulerovská kružnice = eulerovský tah se stejným startem i koncem."
+    "correct": ["A", "B", "D"],
+    "explanation": "Hamilton = vrcholy, Euler = hrany."
+  },
+  {
+    "id": 5,
+    "topic": "Stromy",
+    "question": "Vyberte správná tvrzení o stromu a jeho vlastnostech.",
+    "options": {
+      "A": "Strom je souvislý neorientovaný graf bez cyklů",
+      "B": "Pro n vrcholů má strom n−1 hran",
+      "C": "Mezi dvěma vrcholy stromu existuje právě jedna jednoduchá cesta",
+      "D": "Strom je maximální cyklický graf",
+      "E": "Strom je minimální souvislý graf"
     },
-    {
-      "id": 6,
-      "topic": "Grafy",
-      "question": "Hamiltonovská cesta/kružnice souvisí s…",
-      "options": {
-        "A": "Projitím každé hrany právě jednou",
-        "B": "Projitím každého vrcholu právě jednou (kružnice se vrátí na začátek)",
-        "C": "Minimalizací ceny cesty",
-        "D": "Heuristikou h(n)"
-      },
-      "correct": ["B"],
-      "explanation": "Hamiltonovský problém je o vrcholech, ne o hranách."
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Strom je souvislý a acyklický; má n−1 hran a unikátní cestu mezi vrcholy."
+  },
+  {
+    "id": 6,
+    "topic": "Stromy",
+    "question": "Vyberte správná tvrzení o kostře grafu (spanning tree) a jejím významu.",
+    "options": {
+      "A": "Kostra je strom obsahující všechny vrcholy původního grafu",
+      "B": "Kostra odstraňuje cykly a zjednodušuje strukturu",
+      "C": "Kostra vždy zachová všechny hrany původního grafu",
+      "D": "Kostra může sloužit jako základ pro strom prohledávání",
+      "E": "Kostra existuje jen pro nesouvislé grafy"
     },
-    {
-      "id": 7,
-      "topic": "Grafy",
-      "question": "Vyberte správná tvrzení o stromu.",
-      "options": {
-        "A": "Je to souvislý neorientovaný graf bez cyklů",
-        "B": "Pro n vrcholů má n−1 hran",
-        "C": "Mezi dvěma uzly existuje právě jedna jednoduchá cesta",
-        "D": "Strom musí být orientovaný"
-      },
-      "correct": ["A", "B", "C"],
-      "explanation": "Strom je minimální souvislý a maximální acyklický graf."
+    "correct": ["A", "B", "D"],
+    "explanation": "Spanning tree pokrývá vrcholy a odstraní cykly; pomáhá v prohledávání."
+  },
+  {
+    "id": 7,
+    "topic": "Reprezentace grafu",
+    "question": "Vyberte správná tvrzení o reprezentaci grafu v paměti.",
+    "options": {
+      "A": "Seznam sousedů ukládá pro každý vrchol jeho sousedy",
+      "B": "Matice sousednosti je typicky n×n tabulka (0/1 nebo váhy)",
+      "C": "Seznam hran ukládá pouze hrany (páry vrcholů a případně váhy)",
+      "D": "Matice sousednosti je vždy paměťově úspornější než seznam sousedů",
+      "E": "Seznam sousedů nejde použít pro orientované grafy"
     },
-    {
-      "id": 8,
-      "topic": "Grafy",
-      "question": "Kostra grafu (spanning tree) je…",
-      "options": {
-        "A": "Strom obsahující všechny vrcholy grafu",
-        "B": "Seznam hran grafu",
-        "C": "Matice sousednosti grafu",
-        "D": "Graf s maximálním počtem hran"
-      },
-      "correct": ["A"],
-      "explanation": "Kostra odstraní cykly a zachová souvislé propojení všech vrcholů."
+    "correct": ["A", "B", "C"],
+    "explanation": "List/matrix/edge-list jsou standardní; paměťová výhodnost záleží na hustotě grafu."
+  },
+  {
+    "id": 8,
+    "topic": "Stavový prostor",
+    "question": "Vyberte správná tvrzení o stavovém prostoru a rozdílu stavový graf vs. strom prohledávání.",
+    "options": {
+      "A": "Stavový prostor zahrnuje možné stavy a přechody mezi nimi",
+      "B": "Stavový graf reprezentuje úlohu kompletně (všechny stavy/přechody)",
+      "C": "Strom prohledávání vzniká expanzí od počátečního stavu",
+      "D": "Strom prohledávání je vždy totožný se stavovým grafem",
+      "E": "Stavový graf vzniká až během běhu algoritmu"
     },
-    {
-      "id": 9,
-      "topic": "Reprezentace grafu",
-      "question": "Které reprezentace grafu jsou běžné v paměti?",
-      "options": {
-        "A": "Seznam sousedů (adjacency list)",
-        "B": "Matice sousednosti (adjacency matrix)",
-        "C": "Seznam hran",
-        "D": "Pouze obrázek grafu"
-      },
-      "correct": ["A", "B", "C"],
-      "explanation": "Typicky list, matrix nebo edge-list."
+    "correct": ["A", "B", "C"],
+    "explanation": "Stavový graf je model úlohy; strom je artefakt konkrétního běhu hledání."
+  },
+  {
+    "id": 9,
+    "topic": "Stavový prostor",
+    "question": "Vyberte správná tvrzení o hierarchizaci stavového prostoru.",
+    "options": {
+      "A": "Zavádí abstraktní (hrubší) a detailní úroveň reprezentace",
+      "B": "Hrubší úroveň má méně stavů a „větší kroky“",
+      "C": "Detailní úroveň má vždy méně stavů než hrubší",
+      "D": "Může zvýšit efektivitu prohledávání ve velkých prostorech",
+      "E": "Nemá žádný vliv na rychlost prohledávání"
     },
-    {
-      "id": 10,
-      "topic": "Stavový prostor",
-      "question": "Co je stavový prostor?",
-      "options": {
-        "A": "Množina všech možných stavů a přechodů mezi nimi",
-        "B": "Pouze počáteční a cílový stav",
-        "C": "Jen cesta nalezená algoritmem",
-        "D": "Jen seznam vrcholů grafu"
-      },
-      "correct": ["A"],
-      "explanation": "Stavový prostor popisuje celou úlohu: stavy + přechody."
+    "correct": ["A", "B", "D"],
+    "explanation": "Hierarchie redukuje prostor pro hrubé plánování, detaily řeší lokálně."
+  },
+  {
+    "id": 10,
+    "topic": "Neinformované prohledávání",
+    "question": "Vyberte správná tvrzení o neinformovaném prohledávání.",
+    "options": {
+      "A": "Nepoužívá heuristiku h(n)",
+      "B": "Rozhoduje se jen podle struktury grafu a dosavadních informací",
+      "C": "Mezi příklady patří BFS a DFS",
+      "D": "Mezi příklady patří A*",
+      "E": "Mezi příklady patří UCS a IDDFS"
     },
-    {
-      "id": 11,
-      "topic": "Stavový prostor",
-      "question": "Rozdíl mezi stavovým grafem a stromem prohledávání je…",
-      "options": {
-        "A": "Strom prohledávání vzniká expanzí z počátečního uzlu",
-        "B": "Stavový graf obsahuje všechny stavy úlohy",
-        "C": "Strom prohledávání musí obsahovat všechny stavy",
-        "D": "Stavový graf neobsahuje přechody"
-      },
-      "correct": ["A", "B"],
-      "explanation": "Stavový graf = kompletní model úlohy; strom vzniká během prohledávání."
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Neinformované metody nevyužívají odhad do cíle (heuristiku)."
+  },
+  {
+    "id": 11,
+    "topic": "BFS/DFS",
+    "question": "Vyberte správná tvrzení o BFS a DFS.",
+    "options": {
+      "A": "BFS prohledává po vrstvách (šířka)",
+      "B": "DFS rozvíjí jednu větev do hloubky",
+      "C": "BFS typicky používá frontu",
+      "D": "DFS typicky používá zásobník/rekurzi",
+      "E": "BFS je totéž co UCS při libovolných váhách hran"
     },
-    {
-      "id": 12,
-      "topic": "Neinformované prohledávání",
-      "question": "Neinformované prohledávání znamená, že algoritmus…",
-      "options": {
-        "A": "Používá heuristiku h(n)",
-        "B": "Nezná dodatečné informace o cíli, využívá jen strukturu grafu",
-        "C": "Vždy najde optimální řešení",
-        "D": "Umí pracovat jen se stromy"
-      },
-      "correct": ["B"],
-      "explanation": "BFS/DFS/UCS/IDDFS typicky nevyužívají heuristické odhady."
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "BFS = vrstvy; DFS = větev; struktury: fronta vs. zásobník."
+  },
+  {
+    "id": 12,
+    "topic": "BFS/DFS",
+    "question": "Vyberte správná tvrzení při porovnání BFS vs. DFS (paměť/úplnost/optimálnost).",
+    "options": {
+      "A": "DFS bývá paměťově úspornější než BFS",
+      "B": "BFS drží (potenciálně) celou aktuální úroveň ve frontě",
+      "C": "DFS může v nekonečném prostoru uvíznout v nekonečné větvi",
+      "D": "DFS je vždy optimální (nejlevnější cesta)",
+      "E": "V konečných grafech (s vhodnou detekcí návštěv) mohou být oba úplné"
     },
-    {
-      "id": 13,
-      "topic": "BFS vs DFS",
-      "question": "BFS vs DFS: vyberte správná tvrzení.",
-      "options": {
-        "A": "BFS prohledává po vrstvách (šířkově)",
-        "B": "DFS rozvíjí jednu větev do hloubky",
-        "C": "DFS je typicky paměťově náročnější než BFS",
-        "D": "BFS drží ve frontě uzly aktuální úrovně"
-      },
-      "correct": ["A", "B", "D"],
-      "explanation": "BFS je paměťově náročnější, protože ukládá širší frontu."
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "DFS není obecně optimální a může uvíznout; BFS často spotřebuje víc paměti."
+  },
+  {
+    "id": 13,
+    "topic": "UCS",
+    "question": "Vyberte správná tvrzení o Uniform-Cost Search (UCS).",
+    "options": {
+      "A": "Vybírá k expanzi uzel s nejmenší dosavadní cenou g(n)",
+      "B": "Principem odpovídá Dijkstrovu algoritmu ve stavovém prostoru",
+      "C": "Používá heuristiku h(n)",
+      "D": "Preferuje nejmenší hloubku bez ohledu na ceny",
+      "E": "Zohledňuje kumulativní cenu cest od startu"
     },
-    {
-      "id": 14,
-      "topic": "BFS vs DFS",
-      "question": "Úplnost a optimálnost BFS/DFS: vyberte správná tvrzení.",
-      "options": {
-        "A": "BFS je úplný v konečných grafech",
-        "B": "DFS může v nekonečném grafu uvíznout v nekonečné větvi",
-        "C": "DFS je vždy optimální",
-        "D": "BFS je optimální při jednotkových nákladech hran"
-      },
-      "correct": ["A", "B", "D"],
-      "explanation": "BFS dá nejkratší cestu v počtu hran (při stejných cenách)."
+    "correct": ["A", "B", "E"],
+    "explanation": "UCS řadí podle g(n) (cena od startu), bez heuristiky."
+  },
+  {
+    "id": 14,
+    "topic": "UCS vs BFS",
+    "question": "Vyberte správná tvrzení o vztahu UCS a BFS.",
+    "options": {
+      "A": "UCS je ekvivalentní BFS, pokud jsou všechny hrany stejně ohodnocené",
+      "B": "UCS a BFS se liší, pokud se liší ceny hran",
+      "C": "BFS vybírá uzly podle hloubky, UCS podle celkové ceny",
+      "D": "UCS je ekvivalentní BFS, pokud jsou některé hrany záporné",
+      "E": "BFS vždy dává optimální řešení i při různých cenách"
     },
-    {
-      "id": 15,
-      "topic": "UCS",
-      "question": "Uniform-Cost Search (UCS) vybírá k expanzi uzel s…",
-      "options": {
-        "A": "nejmenší hloubkou",
-        "B": "největší heuristikou",
-        "C": "nejmenší dosavadní cenou cesty g(n)",
-        "D": "nejmenším f(n)=g(n)+h(n)"
-      },
-      "correct": ["C"],
-      "explanation": "UCS je Dijkstrův princip: expanduje nejlevnější dosud nalezenou cestu."
+    "correct": ["A", "B", "C"],
+    "explanation": "BFS optimalizuje počet kroků (při jednotkových cenách), UCS optimalizuje cenu."
+  },
+  {
+    "id": 15,
+    "topic": "UCS",
+    "question": "Vyberte správná tvrzení o podmínkách úplnosti a optimálnosti UCS.",
+    "options": {
+      "A": "UCS je optimální, pokud jsou náklady hran nezáporné",
+      "B": "UCS je úplný, pokud existuje řešení s konečnou cenou a náklady nejsou záporné",
+      "C": "Záporné hrany obecně porušují korektnost UCS",
+      "D": "UCS vyžaduje admisibilní heuristiku",
+      "E": "UCS je optimální i se zápornými cykly"
     },
-    {
-      "id": 16,
-      "topic": "UCS",
-      "question": "Kdy je UCS ekvivalentní BFS?",
-      "options": {
-        "A": "Když jsou všechny ceny hran stejné",
-        "B": "Když je heuristika nulová",
-        "C": "Když je graf orientovaný",
-        "D": "Když má graf cykly"
-      },
-      "correct": ["A"],
-      "explanation": "Při jednotkových nákladech UCS rozvíjí uzly podle hloubky stejně jako BFS."
+    "correct": ["A", "B", "C"],
+    "explanation": "Nezáporné náklady jsou klíčové (Dijkstra)."
+  },
+  {
+    "id": 16,
+    "topic": "IDDFS",
+    "question": "Vyberte správná tvrzení o iterativním prohlubování (IDDFS).",
+    "options": {
+      "A": "Jde o DFS s omezenou hloubkou, která se postupně zvyšuje",
+      "B": "Kombinuje úplnost BFS s paměťovou efektivitou DFS",
+      "C": "Opakovaně expanduje uzly v horních vrstvách",
+      "D": "Používá heuristiku h(n)",
+      "E": "Je vždy rychlejší než BFS"
     },
-    {
-      "id": 17,
-      "topic": "UCS",
-      "question": "UCS je úplný a optimální za podmínek…",
-      "options": {
-        "A": "všechny ceny hran jsou nezáporné",
-        "B": "existuje řešení s konečnou cenou",
-        "C": "heuristika je admisibilní",
-        "D": "graf je strom"
-      },
-      "correct": ["A", "B"],
-      "explanation": "UCS nepotřebuje heuristiku; klíčové jsou nezáporné náklady."
+    "correct": ["A", "B", "C"],
+    "explanation": "IDDFS šetří paměť, ale opakuje část práce."
+  },
+  {
+    "id": 17,
+    "topic": "Informované prohledávání",
+    "question": "Vyberte správná tvrzení o hodnotící funkci v informovaném prohledávání.",
+    "options": {
+      "A": "Každému uzlu přiřazuje hodnotu pro volbu expanze",
+      "B": "Pomáhá vybírat „nejlákavější“ uzly vzhledem k cíli",
+      "C": "Je vždy rovna pouze h(n)",
+      "D": "Může kombinovat g(n) i h(n)",
+      "E": "Nemá vliv na pořadí expanze"
     },
-    {
-      "id": 18,
-      "topic": "IDDFS",
-      "question": "Iterative Deepening DFS (IDDFS) je…",
-      "options": {
-        "A": "BFS s heuristikou",
-        "B": "DFS s limitem hloubky, který se postupně zvyšuje",
-        "C": "UCS s nulovou heuristikou",
-        "D": "beam search"
-      },
-      "correct": ["B"],
-      "explanation": "IDDFS kombinuje paměť DFS s úplností BFS (opakováním s vyšším limitem)."
+    "correct": ["A", "B", "D"],
+    "explanation": "Hodnotící funkce určuje strategii výběru uzlu k expanzi."
+  },
+  {
+    "id": 18,
+    "topic": "Heuristiky",
+    "question": "Vyberte správná tvrzení o heuristické funkci h(n).",
+    "options": {
+      "A": "Je odhad budoucích nákladů z n do cíle",
+      "B": "Může zrychlit hledání řešení",
+      "C": "Je vždy přesná skutečná cena do cíle",
+      "D": "Liší se od skutečné ceny cesty g(n)",
+      "E": "Je totéž co g(n)"
     },
-    {
-      "id": 19,
-      "topic": "Informované prohledávání",
-      "question": "Hodnotící funkce v informovaném prohledávání slouží k…",
-      "options": {
-        "A": "výběru uzlu k expanzi podle jeho „lákavosti“",
-        "B": "zaručení nulové paměťové náročnosti",
-        "C": "zakázání cyklů v grafu",
-        "D": "nahrazení stavového prostoru stromem"
-      },
-      "correct": ["A"],
-      "explanation": "Uzly se typicky řadí podle hodnotící funkce (např. f(n))."
+    "correct": ["A", "B", "D"],
+    "explanation": "h(n) je odhad, g(n) je skutečná dosavadní cena."
+  },
+  {
+    "id": 19,
+    "topic": "g/h/f",
+    "question": "Vyberte správná tvrzení o funkcích g(n), h(n), f(n).",
+    "options": {
+      "A": "g(n) je skutečná dosavadní cena od startu k n",
+      "B": "h(n) je odhad ceny z n do cíle",
+      "C": "Často platí f(n)=g(n)+h(n)",
+      "D": "h(n) je vždy 0",
+      "E": "f(n) ignoruje g(n)"
     },
-    {
-      "id": 20,
-      "topic": "Heuristiky",
-      "question": "Heuristická funkce h(n) je…",
-      "options": {
-        "A": "skutečná cena cesty od startu",
-        "B": "odhad budoucích nákladů do cíle",
-        "C": "počet expandovaných uzlů",
-        "D": "vždy přesná vzdálenost do cíle"
-      },
-      "correct": ["B"],
-      "explanation": "h(n) = odhad ceny od uzlu n do cíle."
+    "correct": ["A", "B", "C"],
+    "explanation": "Typická kombinace v A*: f=g+h."
+  },
+  {
+    "id": 20,
+    "topic": "Heuristiky",
+    "question": "Vyberte správná tvrzení o admisibilní heuristice.",
+    "options": {
+      "A": "Nikdy nepřeceňuje skutečnou nejlevnější cenu do cíle",
+      "B": "Je důležitá pro optimálnost A*",
+      "C": "Může libovolně přeceňovat a A* zůstane optimální",
+      "D": "Je to dolní odhad nákladů do cíle",
+      "E": "Musí být vždy konzistentní"
     },
-    {
-      "id": 21,
-      "topic": "g/h/f",
-      "question": "Co typicky znamenají g(n), h(n), f(n)?",
-      "options": {
-        "A": "g(n) = dosavadní cena; h(n) = odhad do cíle; f(n)=g(n)+h(n)",
-        "B": "g(n)=odhad; h(n)=dosavadní cena; f(n)=g(n)-h(n)",
-        "C": "g(n)=počet hran; h(n)=počet vrcholů; f(n)=cykly",
-        "D": "f(n)=heuristika; g(n)=0 vždy"
-      },
-      "correct": ["A"],
-      "explanation": "Klasická definice pro A*: f(n)=g(n)+h(n)."
+    "correct": ["A", "B", "D"],
+    "explanation": "Admisibilita = nepřeceňuje; konzistence je silnější vlastnost."
+  },
+  {
+    "id": 21,
+    "topic": "Heuristiky",
+    "question": "Vyberte správná tvrzení o konzistentní heuristice a vztahu ke konzistenci/admisibilitě.",
+    "options": {
+      "A": "Každá konzistentní heuristika je admisibilní",
+      "B": "Admisibilní heuristika je vždy konzistentní",
+      "C": "Konzistence souvisí s monotónností f(n) podél cesty",
+      "D": "Konzistence často snižuje potřebu znovuotevírání uzlů",
+      "E": "Konzistentní heuristika musí být nulová"
     },
-    {
-      "id": 22,
-      "topic": "Heuristiky",
-      "question": "Admisibilní heuristika je taková, která…",
-      "options": {
-        "A": "nikdy nepřeceňuje skutečnou cenu do cíle",
-        "B": "je vždy nulová",
-        "C": "může přeceňovat, ale jen trochu",
-        "D": "zaručuje rychlost, ne optimálnost"
-      },
-      "correct": ["A"],
-      "explanation": "Admisibilita je důležitá, aby A* našel optimální řešení."
+    "correct": ["A", "C", "D"],
+    "explanation": "Konzistence ⇒ admisibilita; opačně neplatí."
+  },
+  {
+    "id": 22,
+    "topic": "Heuristiky",
+    "question": "Vyberte správná tvrzení o příkladech heuristik (Eukleidovská, Manhattan).",
+    "options": {
+      "A": "Eukleidovská vzdálenost je často admisibilní jako „vzdušná čára“",
+      "B": "Manhattan vzdálenost je vhodná pro pohyb po mřížce bez diagonál",
+      "C": "Eukleidovská vzdálenost vždy přeceňuje skutečnou cestu",
+      "D": "Manhattan vzdálenost může být dolní odhad v mřížce s 4-směrným pohybem",
+      "E": "Manhattan je vždy větší než skutečná nejkratší cesta"
     },
-    {
-      "id": 23,
-      "topic": "Heuristiky",
-      "question": "Konzistentní heuristika…",
-      "options": {
-        "A": "implikuje admisibilitu",
-        "B": "je totéž co admisibilní heuristika",
-        "C": "nezaručuje monotónnost f(n)",
-        "D": "je vždy horší než admisibilní"
-      },
-      "correct": ["A"],
-      "explanation": "Platí: konzistentní ⇒ admisibilní (ale ne naopak)."
+    "correct": ["A", "B", "D"],
+    "explanation": "Obě mohou být admisibilní v odpovídajících podmínkách."
+  },
+  {
+    "id": 23,
+    "topic": "Best-First Search",
+    "question": "Vyberte správná tvrzení o uspořádaném prohledávání (Best-First Search).",
+    "options": {
+      "A": "Vybírá k expanzi uzel nejlepší podle hodnotící funkce",
+      "B": "Typicky pracuje se seznamem OPEN",
+      "C": "Po expanzi přidává následovníky do OPEN",
+      "D": "Nikdy nepoužívá CLOSED",
+      "E": "Nemůže být implementováno prioritní frontou"
     },
-    {
-      "id": 24,
-      "topic": "Best-first",
-      "question": "Best-First Search obecně vybírá k expanzi uzel, který…",
-      "options": {
-        "A": "má nejlepší hodnotu dle hodnotící funkce",
-        "B": "je nejhlubší",
-        "C": "má největší stupeň",
-        "D": "je v CLOSED"
-      },
-      "correct": ["A"],
-      "explanation": "Best-first = expanduj to, co vypadá nejlépe podle evaluace."
+    "correct": ["A", "B", "C"],
+    "explanation": "Best-first obecně vybírá nejlepší uzel dle zvolené evaluace."
+  },
+  {
+    "id": 24,
+    "topic": "OPEN/CLOSED",
+    "question": "Vyberte správná tvrzení o seznamech OPEN a CLOSED.",
+    "options": {
+      "A": "OPEN typicky obsahuje neexpandované (kandidátní) uzly",
+      "B": "CLOSED typicky obsahuje už expandované/prozkoumané uzly",
+      "C": "OPEN se často implementuje jako prioritní fronta",
+      "D": "CLOSED se používá k prevenci opakovaných expanzí",
+      "E": "CLOSED obsahuje jen cílové uzly"
     },
-    {
-      "id": 25,
-      "topic": "OPEN/CLOSED",
-      "question": "OPEN a CLOSED seznamy obvykle znamenají…",
-      "options": {
-        "A": "OPEN = neprozkoumané (fronta priorit), CLOSED = již zpracované uzly",
-        "B": "OPEN = cíle, CLOSED = starty",
-        "C": "OPEN = hrany, CLOSED = vrcholy",
-        "D": "OPEN = jen pro BFS"
-      },
-      "correct": ["A"],
-      "explanation": "OPEN drží kandidáty na expanzi; CLOSED ty, které už byly expandovány."
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "OPEN = fronta kandidátů; CLOSED = navštíveno/expandováno."
+  },
+  {
+    "id": 25,
+    "topic": "Výběr uzlu",
+    "question": "Vyberte správná tvrzení o tom, jak se vybírá uzel k expanzi.",
+    "options": {
+      "A": "Záleží na strategii algoritmu (BFS/DFS/UCS/A*)",
+      "B": "UCS vybírá podle g(n)",
+      "C": "A* vybírá podle f(n)=g(n)+h(n)",
+      "D": "Greedy vybírá podle h(n)",
+      "E": "Všechny algoritmy vybírají vždy podle hloubky"
     },
-    {
-      "id": 26,
-      "topic": "Greedy",
-      "question": "Greedy Best-First Search typicky používá hodnotící funkci…",
-      "options": {
-        "A": "f(n)=g(n)+h(n)",
-        "B": "f(n)=g(n)",
-        "C": "f(n)=h(n)",
-        "D": "f(n)=0"
-      },
-      "correct": ["C"],
-      "explanation": "Greedy ignoruje cenu cesty a jde podle odhadu do cíle."
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Kritérium výběru závisí na metodě."
+  },
+  {
+    "id": 26,
+    "topic": "Greedy",
+    "question": "Vyberte správná tvrzení o greedy best-first search.",
+    "options": {
+      "A": "Typicky používá f(n)=h(n)",
+      "B": "Ignoruje dosavadní cenu g(n)",
+      "C": "Bývá rychlý, ale negarantuje optimální řešení",
+      "D": "Může se zacyklit bez kontroly navštívených stavů",
+      "E": "Je vždy optimální při admisibilní heuristice"
     },
-    {
-      "id": 27,
-      "topic": "Beam Search",
-      "question": "Beam Search si v každé vrstvě nechává…",
-      "options": {
-        "A": "všechny uzly (jako BFS)",
-        "B": "jen x nejlepších uzlů podle evaluace (šířka paprsku)",
-        "C": "jen nejhorší uzly",
-        "D": "jen uzly z CLOSED"
-      },
-      "correct": ["B"],
-      "explanation": "Parametr šířky paprsku omezuje paměť a šířku prohledávání."
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Greedy jde „kam to vypadá blízko“, ne „nejlevněji“."
+  },
+  {
+    "id": 27,
+    "topic": "Beam Search",
+    "question": "Vyberte správná tvrzení o paprskovém prohledávání (Beam Search).",
+    "options": {
+      "A": "V každé vrstvě ponechá jen omezený počet nejlepších uzlů",
+      "B": "Šířka paprsku určuje limit ponechaných uzlů",
+      "C": "Snižuje paměťovou náročnost oproti BFS",
+      "D": "Je úplné (vždy najde řešení, pokud existuje)",
+      "E": "Může zahodit správnou cestu, pokud se nevejde do paprsku"
     },
-    {
-      "id": 28,
-      "topic": "A*",
-      "question": "A* používá hodnotící funkci…",
-      "options": {
-        "A": "f(n)=h(n)",
-        "B": "f(n)=g(n)",
-        "C": "f(n)=g(n)+h(n)",
-        "D": "f(n)=g(n)-h(n)"
-      },
-      "correct": ["C"],
-      "explanation": "A* kombinuje dosavadní cenu g(n) a odhad do cíle h(n)."
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Beam je kompromis: méně paměti, ale bez záruky úplnosti."
+  },
+  {
+    "id": 28,
+    "topic": "A*",
+    "question": "Vyberte správná tvrzení o principu A*.",
+    "options": {
+      "A": "Používá f(n)=g(n)+h(n)",
+      "B": "Je úplný při nezáporných nákladech",
+      "C": "Je optimální při admisibilní heuristice",
+      "D": "Kvalita heuristiky ovlivňuje počet expandovaných uzlů",
+      "E": "Nepracuje s OPEN/CLOSED"
     },
-    {
-      "id": 29,
-      "topic": "A* vlastnosti",
-      "question": "Vyberte správná tvrzení o A*.",
-      "options": {
-        "A": "Při nezáporných hranách je A* úplný",
-        "B": "Při admisibilní heuristice je A* optimální",
-        "C": "A* je totéž co greedy",
-        "D": "A* nepotřebuje g(n)"
-      },
-      "correct": ["A", "B"],
-      "explanation": "Optimálnost A* stojí na admisibilní (ideálně konzistentní) heuristice."
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "A* kombinuje cenu a odhad; OPEN/CLOSED jsou běžné."
+  },
+  {
+    "id": 29,
+    "topic": "Bidirectional A*",
+    "question": "Vyberte správná tvrzení o bidirectional A*.",
+    "options": {
+      "A": "Běží současně od startu i od cíle",
+      "B": "Končí, když se prohledávání setkají",
+      "C": "Může snížit počet expandovaných uzlů",
+      "D": "Je vždy rychlejší než klasické A*",
+      "E": "Je složitější na implementaci a má omezení (např. cíl musí být jasný)"
     },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Zrychlení není garantováno; implementace je složitější."
+  },
+  {
+    "id": 30,
+    "topic": "Hierarchical A*",
+    "question": "Vyberte správná tvrzení o Hierarchical A*.",
+    "options": {
+      "A": "Používá více úrovní abstrakce prostoru",
+      "B": "Nejprve plánuje v hrubé úrovni (sektory) a pak v detailech",
+      "C": "Snižuje efektivně prohledávací prostor",
+      "D": "Je vhodný pro velké mapy/hry",
+      "E": "Zaručuje vždy globálně optimální cestu v původním prostoru bez podmínek"
+    },
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Hierarchie urychluje; optimálnost závisí na konstrukci abstrakce."
+  },
+  {
+    "id": 31,
+    "topic": "Srovnání (A*/UCS/Greedy)",
+    "question": "Vyberte správná tvrzení při porovnání greedy, A* a UCS.",
+    "options": {
+      "A": "Greedy bývá nejrychlejší, ale může být neoptimální",
+      "B": "UCS je optimální (při nezáporných cenách), ale může být pomalejší",
+      "C": "A* může být optimální a často rychlejší než UCS díky heuristice",
+      "D": "Greedy je vždy optimální při admisibilní heuristice",
+      "E": "Paměťově mohou být A* a UCS náročné kvůli OPEN"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Greedy obětuje optimalitu; A* využívá heuristiku; UCS je Dijkstra."
+  },
+  {
+    "id": 32,
+    "topic": "UCS jako speciální případ A*",
+    "question": "Vyberte správná tvrzení o vztahu UCS a A*.",
+    "options": {
+      "A": "UCS lze chápat jako A* s h(n)=0",
+      "B": "A* je UCS s h(n)=0",
+      "C": "Když h(n)=0, A* vybírá uzly podle g(n)",
+      "D": "UCS používá heuristiku, A* ne",
+      "E": "A* ignoruje g(n)"
+    },
+    "correct": ["A", "C"],
+    "explanation": "Při h=0 se A* redukuje na UCS."
+  },
 
-    {
-      "id": 30,
-      "topic": "Optimalizace",
-      "question": "Optimalizační úloha se skládá z…",
-      "options": {
-        "A": "cílové funkce",
-        "B": "přípustné množiny (omezení)",
-        "C": "optima (globální/lokální)",
-        "D": "OPEN a CLOSED seznamu"
-      },
-      "correct": ["A", "B", "C"],
-      "explanation": "Základ: minimalizovat/maximalizovat cílovou funkci na přípustné množině."
+  {
+    "id": 33,
+    "topic": "Optimalizace",
+    "question": "Vyberte správná tvrzení o optimalizační úloze (cílová funkce, přípustná množina, optimum).",
+    "options": {
+      "A": "Cílová funkce je to, co minimalizujeme/maximalizujeme",
+      "B": "Přípustná množina obsahuje řešení splňující omezení",
+      "C": "Globální optimum je nejlepší řešení v celé přípustné množině",
+      "D": "Lokální optimum je vždy globální",
+      "E": "Optimum je řešení s nejlepší hodnotou cílové funkce v rámci omezení"
     },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Lokální optimum nemusí být globální."
+  },
+  {
+    "id": 34,
+    "topic": "Heuristika vs Metaheuristika",
+    "question": "Vyberte správná tvrzení o heuristice a metaheuristice.",
+    "options": {
+      "A": "Heuristika je často navržená pro konkrétní třídu úloh",
+      "B": "Metaheuristika je obecný rámec použitelný na širokou škálu úloh",
+      "C": "Metaheuristika vždy garantuje globální optimum",
+      "D": "Heuristika využívá často specifickou strukturu úlohy",
+      "E": "Heuristika a metaheuristika jsou totéž"
+    },
+    "correct": ["A", "B", "D"],
+    "explanation": "Metaheuristiky jsou obecné, ale bez garance globálního optima."
+  },
+  {
+    "id": 35,
+    "topic": "Stochastické a derivative-free",
+    "question": "Vyberte správná tvrzení o „stochastická“ a „derivative-free“ metodě.",
+    "options": {
+      "A": "Stochastická metoda využívá náhodnost",
+      "B": "Derivative-free metoda nepotřebuje derivace cílové funkce",
+      "C": "Je to výhoda pro black-box funkce",
+      "D": "Nevýhoda může být pomalejší konvergence/bez garance",
+      "E": "Derivative-free znamená, že funkce nesmí být spojitá"
+    },
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Metaheuristiky často nepotřebují derivace a snesou šum."
+  },
+  {
+    "id": 36,
+    "topic": "Explorace/Exploatace",
+    "question": "Vyberte správná tvrzení o exploraci a exploataci.",
+    "options": {
+      "A": "Explorace = prozkoumávání nových oblastí prostoru řešení",
+      "B": "Exploatace = zlepšování v okolí dobrých řešení",
+      "C": "Přílišná exploatace může vést k uvíznutí v lokálním optimu",
+      "D": "Explorace vždy zaručí globální optimum",
+      "E": "Nízká teplota v SA podporuje exploataci"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Je nutný kompromis mezi hledáním nového a laděním známého."
+  },
+  {
+    "id": 37,
+    "topic": "Rámec metaheuristik",
+    "question": "Vyberte správné kroky obecného rámce metaheuristiky.",
+    "options": {
+      "A": "Inicializace (populace nebo startovní řešení)",
+      "B": "Vyhodnocení (fitness)",
+      "C": "Iterace: generování nových řešení pomocí operátorů",
+      "D": "Zastavení podle kritéria",
+      "E": "Důkaz optimálnosti pro všechny úlohy"
+    },
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Typický cyklus: init → evaluate → iterate → stop."
+  },
+  {
+    "id": 38,
+    "topic": "Reprezentace řešení",
+    "question": "Vyberte správné typy reprezentace řešení v metaheuristikách.",
+    "options": {
+      "A": "Binární (0/1)",
+      "B": "Reálná (vektor reálných čísel)",
+      "C": "Permutační (pořadí unikátních prvků)",
+      "D": "Stromová (např. genetické programování)",
+      "E": "Pouze textová věta bez struktury"
+    },
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Reprezentace závisí na typu úlohy (diskrétní/spojitá/programová)."
+  },
+  {
+    "id": 39,
+    "topic": "Genotyp/Fenotyp",
+    "question": "Vyberte správná tvrzení o genotypu a fenotypu.",
+    "options": {
+      "A": "Genotyp je kódovaná forma řešení pro operátory",
+      "B": "Fenotyp je dekódované „skutečné“ řešení pro vyhodnocení fitness",
+      "C": "Genotyp a fenotyp jsou vždy totožné",
+      "D": "Dekódování převádí genotyp na fenotyp",
+      "E": "Fenotyp se používá výhradně pro mutaci"
+    },
+    "correct": ["A", "B", "D"],
+    "explanation": "Operátory často pracují nad kódem (genotyp), fitness nad významem (fenotyp)."
+  },
+  {
+    "id": 40,
+    "topic": "Constraints",
+    "question": "Vyberte správné způsoby řešení omezení (constraints) v metaheuristikách.",
+    "options": {
+      "A": "Penalizace (trest do fitness)",
+      "B": "Opravné mechanismy (repair)",
+      "C": "Ignorování omezení vždy vede ke správnému řešení",
+      "D": "Odmítnutí nepřípustných řešení (feasibility check) je možné",
+      "E": "Transformace proměnných tak, aby byly vždy přípustné"
+    },
+    "correct": ["A", "B", "D", "E"],
+    "explanation": "Běžné jsou penalty, repair, odmítání i parametrizace do přípustné oblasti."
+  },
+  {
+    "id": 41,
+    "topic": "Stop kritéria",
+    "question": "Vyberte typická zastavovací kritéria a význam premature convergence.",
+    "options": {
+      "A": "Max. počet iterací/generací",
+      "B": "Vyčerpání rozpočtu evaluací",
+      "C": "Stagnace (bez zlepšení)",
+      "D": "Premature convergence = předčasné uvíznutí (ztráta diverzity, lokální optimum)",
+      "E": "Premature convergence = zaručené nalezení globálního optima"
+    },
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Premature convergence je problém, ne výhoda."
+  },
+  {
+    "id": 42,
+    "topic": "GA",
+    "question": "Vyberte správná tvrzení o principu genetického algoritmu (cyklus generace).",
+    "options": {
+      "A": "GA pracuje s populací řešení",
+      "B": "Typický cyklus zahrnuje fitness → selekci → křížení → mutaci",
+      "C": "Elitismus znamená přímé zachování nejlepších jedinců",
+      "D": "Mutace se provádí vždy před křížením jako povinný krok",
+      "E": "GA je inspirován Darwinovou evolucí"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Pořadí operátorů může být různé, ale standardně selection→crossover→mutation."
+  },
+  {
+    "id": 43,
+    "topic": "GA selekce",
+    "question": "Vyberte správné selekční mechanismy a tvrzení o selekčním tlaku.",
+    "options": {
+      "A": "Ruletová selekce",
+      "B": "Turnajová selekce",
+      "C": "Ranking selekce",
+      "D": "Silný selekční tlak urychlí konvergenci, ale může snížit diverzitu",
+      "E": "Silný selekční tlak vždy zaručí globální optimum"
+    },
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Přílišný tlak → riziko premature convergence."
+  },
+  {
+    "id": 44,
+    "topic": "GA operátory",
+    "question": "Vyberte správná tvrzení o křížení a mutaci (binární vs reálné).",
+    "options": {
+      "A": "Jednobodové křížení je typické pro binární reprezentaci",
+      "B": "Aritmetické křížení může tvořit vážený průměr rodičů (reálné vektory)",
+      "C": "Binární mutace může být překlopení bitu",
+      "D": "U reálných genů se mutace dá realizovat přičtením šumu",
+      "E": "Mutace v GA je vždy deterministická a bez náhodnosti"
+    },
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Křížení/mutace závisí na reprezentaci."
+  },
+  {
+    "id": 45,
+    "topic": "Permutace (TSP)",
+    "question": "Vyberte správná tvrzení o operátorech pro permutační úlohy (TSP).",
+    "options": {
+      "A": "Klasické křížení může vytvořit duplicity měst a porušit permutaci",
+      "B": "OX zachovává pořadí a doplňuje chybějící prvky",
+      "C": "PMX pracuje s mapováním úseků mezi rodiči",
+      "D": "Permutace dovoluje opakování stejných měst vícekrát",
+      "E": "Speciální operátory se používají pro zachování platné permutace"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Permutační reprezentace vyžaduje unikátní prvky."
+  },
+  {
+    "id": 46,
+    "topic": "GA parametry",
+    "question": "Vyberte správná tvrzení o vlivu N, Pc, Pm a elitismu v GA.",
+    "options": {
+      "A": "Větší populace N často zvyšuje diverzitu, ale zvyšuje výpočetní nároky",
+      "B": "Pc (pravděpodobnost křížení) podporuje exploataci kombinací rodičů",
+      "C": "Pm (pravděpodobnost mutace) podporuje exploraci",
+      "D": "Příliš vysoké Pm může GA přiblížit náhodnému hledání",
+      "E": "Elitismus zajišťuje, že nejlepší jedinci se určitě zhorší"
+    },
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Elitismus chrání nejlepší řešení."
+  },
+  {
+    "id": 47,
+    "topic": "SA",
+    "question": "Vyberte správná tvrzení o Simulated Annealing a Metropolisově kritériu.",
+    "options": {
+      "A": "SA je jednoprvková metoda inspirovaná žíháním",
+      "B": "SA zkouší sousední řešení (lokální pohyb)",
+      "C": "Metropolisovo kritérium umožňuje někdy přijmout horší řešení",
+      "D": "Horší řešení se přijme s pravděpodobností závislou na teplotě a zhoršení",
+      "E": "SA nikdy nepřijme horší řešení"
+    },
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Akceptace horšího řešení pomáhá úniku z lokálních minim."
+  },
+  {
+    "id": 48,
+    "topic": "SA teplotní plán",
+    "question": "Vyberte správná tvrzení o cooling schedule (teplotním plánu).",
+    "options": {
+      "A": "Vysoká teplota podporuje exploraci (víc přijímání horších kroků)",
+      "B": "Nízká teplota vede k chování podobnému lokální optimalizaci",
+      "C": "Rychlé ochlazování zvyšuje riziko uvíznutí (quenching)",
+      "D": "Pomalé ochlazování může zvýšit šanci na globální optimum, ale je pomalé",
+      "E": "Teplota v SA nemá vliv na chování algoritmu"
+    },
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Teplota řídí kompromis explorace/exploatace."
+  },
+  {
+    "id": 49,
+    "topic": "SA vs HC",
+    "question": "Vyberte správná tvrzení o rozdílu hill-climbing (HC) a SA.",
+    "options": {
+      "A": "HC typicky přijímá jen zlepšující kroky",
+      "B": "HC se může snadno zaseknout v lokálním minimu",
+      "C": "SA umí přijmout i horší kroky dle teploty",
+      "D": "SA je deterministický algoritmus bez náhodnosti",
+      "E": "SA je obecně robustnější proti lokálním minimům než HC"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "SA má mechanismus úniku z lokálních minim."
+  },
+  {
+    "id": 50,
+    "topic": "SA použití",
+    "question": "Vyberte úlohy/charakteristiky, pro které je SA typicky vhodné.",
+    "options": {
+      "A": "Kombinatorické úlohy s mnoha lokálními minimy",
+      "B": "TSP",
+      "C": "Rozvrhování (scheduling)",
+      "D": "Trénování hlubokých CNN backpropagací jako standardní metoda",
+      "E": "Návrh obvodů / návrhové úlohy"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "SA se často používá na diskrétní/komplexní kombinatorické úlohy."
+  },
+  {
+    "id": 51,
+    "topic": "DE",
+    "question": "Vyberte správná tvrzení o Differential Evolution (DE) a rozdílu vůči GA.",
+    "options": {
+      "A": "DE je populační metoda pro spojitou (reálnou) optimalizaci",
+      "B": "Nové řešení tvoří přičtením váženého rozdílu vektorů",
+      "C": "Hlavní motor změn je diferenciální mutace (vztahy mezi jedinci)",
+      "D": "DE je primárně určeno pro permutační TSP",
+      "E": "V DE často křížení nastává až po mutaci"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "DE je silné pro reálné vektory; pro TSP se typicky nepoužívá."
+  },
+  {
+    "id": 52,
+    "topic": "DE/rand/1",
+    "question": "Vyberte správná tvrzení o DE/rand/1 a parametrech F, CR, NP.",
+    "options": {
+      "A": "Mutant vzniká jako náhodný vektor + F*(rozdíl dvou jiných vektorů)",
+      "B": "F řídí velikost kroku (exploraci)",
+      "C": "CR je míra křížení (kolik prvků se převezme z mutanta)",
+      "D": "NP je velikost populace",
+      "E": "CR je počet epoch"
+    },
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "F/CR/NP jsou základní parametry DE."
+  },
+  {
+    "id": 53,
+    "topic": "DE vs GA",
+    "question": "Vyberte správná tvrzení při porovnání DE a GA.",
+    "options": {
+      "A": "DE má často méně parametrů k ladění než GA",
+      "B": "DE bývá velmi efektivní pro nelineární spojité funkce",
+      "C": "GA je univerzálnější pro diskrétní/kombinatorické úlohy",
+      "D": "DE vyžaduje vždy binární reprezentaci",
+      "E": "GA nikdy nepoužívá reálné vektory"
+    },
+    "correct": ["A", "B", "C"],
+    "explanation": "DE typicky reálné vektory; GA může být binární i reálný."
+  },
+  {
+    "id": 54,
+    "topic": "PSO",
+    "question": "Vyberte správná tvrzení o Particle Swarm Optimization (PSO).",
+    "options": {
+      "A": "Je inspirováno hejnem ptáků/ryb",
+      "B": "Populace je tvořena částicemi (řešeními)",
+      "C": "Rychlost/pohyb závisí na pBest a gBest",
+      "D": "PSO vyžaduje gradient cílové funkce",
+      "E": "Částice aktualizují polohu pomocí rychlosti"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "PSO je derivative-free; používá pBest/gBest."
+  },
+  {
+    "id": 55,
+    "topic": "ACO",
+    "question": "Vyberte správná tvrzení o Ant Colony Optimization (ACO).",
+    "options": {
+      "A": "Mravenci zanechávají feromon na kvalitních cestách",
+      "B": "Odpařování feromonu pomáhá zabránit uvíznutí",
+      "C": "ACO kombinuje feromonovou informaci a heuristiku (např. vzdálenost)",
+      "D": "ACO je deterministické bez náhodnosti",
+      "E": "ACO se často používá pro kombinatorické úlohy (např. TSP)"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Feromon = zkušenost; odpařování = zapomínání; konstrukční proces je stochastický."
+  },
+  {
+    "id": 56,
+    "topic": "HC12",
+    "question": "Vyberte správná tvrzení o HC12 (z kontextu skript).",
+    "options": {
+      "A": "Jde o hybridní algoritmus kombinující lokální prohledávání a exploraci",
+      "B": "Je založen na prohledávání binárního prostoru",
+      "C": "Je založen na self-attention mechanismech",
+      "D": "Využívá principy podobné GA (v širším smyslu)",
+      "E": "Je to čistě deterministické prohledávání bez změny řešení"
+    },
+    "correct": ["A", "B", "D"],
+    "explanation": "Hybridní přístup: lokální zlepšování + mechanismy explorace."
+  },
+  {
+    "id": 57,
+    "topic": "Populační vs jednoprvkové",
+    "question": "Vyberte správná tvrzení o populačních (GA/DE/PSO) a jednoprvkových (SA/HC) metodách.",
+    "options": {
+      "A": "Populační metody drží více řešení najednou",
+      "B": "Populační metody mívají vyšší paměťové nároky",
+      "C": "Jednoprvkové metody mají nízké paměťové nároky",
+      "D": "Jednoprvkové metody mají vždy menší riziko uvíznutí než populační",
+      "E": "Populační metody lze často přirozeně paralelizovat"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Populační metody lépe explorují, ale stojí paměť; jednoprvkové jsou lehké."
+  },
+  {
+    "id": 58,
+    "topic": "Vícekriteriální optimalizace",
+    "question": "Vyberte správná tvrzení o Pareto-frontě a dominanci.",
+    "options": {
+      "A": "Pareto-front je množina nedominovaných řešení (kompromisů)",
+      "B": "A dominuje B, když je ve všech kritériích alespoň tak dobré a v jednom lepší",
+      "C": "Pareto-front je vždy jediné řešení",
+      "D": "Vícekriteriální optimalizace řeší více (často protichůdných) cílů najednou",
+      "E": "Na Pareto-frontě nelze zlepšit jeden cíl bez zhoršení jiného"
+    },
+    "correct": ["A", "B", "D", "E"],
+    "explanation": "Pareto-front = kompromisy, ne nutně jeden bod."
+  },
+  {
+    "id": 59,
+    "topic": "Surrogate-assisted",
+    "question": "Vyberte správná tvrzení o surrogate-assisted optimalizaci.",
+    "options": {
+      "A": "Nahrazuje drahou fitness funkci levnějším modelem (surrogate/metamodel)",
+      "B": "Hodí se, když je evaluace (simulace) velmi drahá",
+      "C": "Model se může postupně zpřesňovat novými vzorky",
+      "D": "Zvyšuje počet volání drahé fitness funkce",
+      "E": "Cílem je snížit počet evaluací drahé funkce"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Optimalizace běží na aproximaci a občas se do-vzorkuje."
+  },
+  {
+    "id": 60,
+    "topic": "Porovnání metaheuristik",
+    "question": "Vyberte správná tvrzení o férovém porovnání metaheuristik.",
+    "options": {
+      "A": "Použít stejný rozpočet (počet evaluací fitness)",
+      "B": "Provést více nezávislých běhů kvůli statistice",
+      "C": "Použít stejné seedování pro srovnatelnost",
+      "D": "Stačí jeden běh, když jednou vyjde nejlepší hodnota",
+      "E": "Vyhodnotit medián/rozptyl a případně statistické testy"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Stochastické metody vyžadují opakování a statistiku."
+  },
+  {
+    "id": 61,
+    "topic": "Hollandův schema theorem",
+    "question": "Vyberte správná tvrzení o Hollandově schema theorem (GA).",
+    "options": {
+      "A": "Tvrdí, že krátká schémata s nadprůměrnou fitness se množí",
+      "B": "Vysvětluje skládání dobrých dílčích vzorů do lepších řešení",
+      "C": "Říká, že GA vždy najde globální optimum",
+      "D": "Je teoretický základ pro chování GA",
+      "E": "Týká se pouze neuronových sítí"
+    },
+    "correct": ["A", "B", "D"],
+    "explanation": "Schémata (vzory) s dobrou fitness se v populaci šíří."
+  },
+  {
+    "id": 62,
+    "topic": "NFL",
+    "question": "Vyberte správná tvrzení o No-Free Lunch Theorem.",
+    "options": {
+      "A": "Neexistuje univerzálně nejlepší optimalizační algoritmus",
+      "B": "Zlepšení na jedné třídě úloh znamená zhoršení na jiné",
+      "C": "V průměru přes všechny možné úlohy jsou algoritmy stejně úspěšné",
+      "D": "NFL znamená, že metaheuristiky jsou zbytečné v praxi",
+      "E": "NFL tvrdí, že náhodné hledání je vždy nejlepší v praxi"
+    },
+    "correct": ["A", "B", "C"],
+    "explanation": "NFL je teoretický výsledek o průměru přes všechny úlohy."
+  },
 
-    {
-      "id": 31,
-      "topic": "Metaheuristiky",
-      "question": "Heuristika vs. metaheuristika: vyberte správná tvrzení.",
-      "options": {
-        "A": "Heuristika je často navržená pro konkrétní třídu úloh",
-        "B": "Metaheuristika je obecnější rámec použitelný pro více úloh",
-        "C": "Metaheuristika vždy zaručí globální optimum",
-        "D": "Heuristika je vždy stochastická"
-      },
-      "correct": ["A", "B"],
-      "explanation": "Metaheuristika je nadřazený postup (GA/SA/PSO…), bez garance globálního optima."
+  {
+    "id": 63,
+    "topic": "AI – inteligence",
+    "question": "Vyberte správná tvrzení o inteligenci a ANI/AGI/ASI.",
+    "options": {
+      "A": "Úzká AI (ANI) je specializovaná na konkrétní úlohu",
+      "B": "AGI je hypotetická AI schopná řešit širokou škálu úloh na úrovni člověka",
+      "C": "ASI je inteligence výrazně převyšující člověka napříč oblastmi",
+      "D": "ANI automaticky znamená superinteligenci",
+      "E": "Inteligence zahrnuje schopnost učit se a řešit problémy v prostředí"
     },
-    {
-      "id": 32,
-      "topic": "Metaheuristiky",
-      "question": "Co znamená „stochastická“ a „derivative-free“ metoda?",
-      "options": {
-        "A": "Stochastická využívá náhodnost",
-        "B": "Derivative-free nepotřebuje derivace cílové funkce",
-        "C": "Derivative-free je vždy rychlejší než gradientní metody",
-        "D": "Stochastická se nikdy nezasekne v lokálním minimu"
-      },
-      "correct": ["A", "B"],
-      "explanation": "Výhoda pro black-box funkce; nevýhoda často více evaluací (pomalejší)."
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "ANI je úzká; AGI obecná; ASI nadlidská."
+  },
+  {
+    "id": 64,
+    "topic": "Paradigmata učení",
+    "question": "Vyberte správná tvrzení o supervised/unsupervised/RL.",
+    "options": {
+      "A": "Supervised učení používá vstupy i labely (správné výstupy)",
+      "B": "Unsupervised učení hledá strukturu v datech bez labelů",
+      "C": "Reinforcement learning využívá odměny/tresty při interakci s prostředím",
+      "D": "Unsupervised vždy vyžaduje labely",
+      "E": "RL je totéž co k-means"
     },
-    {
-      "id": 33,
-      "topic": "Explorace/Exploatace",
-      "question": "Explorace vs exploatace: vyberte správná tvrzení.",
-      "options": {
-        "A": "Explorace = hledání nových oblastí prostoru",
-        "B": "Exploatace = zlepšování v okolí dobrého řešení",
-        "C": "Vysoká mutace obvykle zvyšuje exploataci",
-        "D": "Nízká teplota v SA podporuje exploataci"
-      },
-      "correct": ["A", "B", "D"],
-      "explanation": "Mutace typicky zvyšuje exploraci; nízká teplota v SA = lokálnější chování."
+    "correct": ["A", "B", "C"],
+    "explanation": "Supervised = labely, unsupervised = bez labelů, RL = odměny v prostředí."
+  },
+  {
+    "id": 65,
+    "topic": "Parametry vs hyperparametry",
+    "question": "Vyberte správná tvrzení o parametrech, hyperparametrech a architektuře.",
+    "options": {
+      "A": "Parametry (váhy, biasy) se učí během tréninku",
+      "B": "Hyperparametry (např. learning rate, počet vrstev) volí člověk před tréninkem",
+      "C": "Architektura sítě je dána hyperparametry",
+      "D": "Learning rate je parametr učený během tréninku stejně jako váhy",
+      "E": "Počet neuronů ve vrstvě je typicky hyperparametr"
     },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Váhy/biasy se učí; LR a architektura se nastavují."
+  },
 
-    {
-      "id": 34,
-      "topic": "GA",
-      "question": "Základní cyklus genetického algoritmu (GA) obsahuje…",
-      "options": {
-        "A": "vyhodnocení fitness",
-        "B": "selekci",
-        "C": "křížení a mutaci",
-        "D": "elitismus (volitelně)"
-      },
-      "correct": ["A", "B", "C", "D"],
-      "explanation": "Typicky: fitness → selekce → crossover → mutace (+ elitismus) opakovaně."
+  {
+    "id": 66,
+    "topic": "Biologický neuron",
+    "question": "Vyberte správná tvrzení o částech biologického neuronu a inspiraci pro ANN.",
+    "options": {
+      "A": "Dendrity přijímají signály (vstupy)",
+      "B": "Soma sčítá/zpracovává signály",
+      "C": "Axon přenáší výstupní signál",
+      "D": "Synapse určuje sílu přenosu signálu",
+      "E": "Biologický neuron nemá žádné prahové chování"
     },
-    {
-      "id": 35,
-      "topic": "GA selekce",
-      "question": "Mezi selekční mechanismy v GA patří…",
-      "options": {
-        "A": "ruletová selekce",
-        "B": "turnajová selekce",
-        "C": "ranking selekce",
-        "D": "Metropolisovo kritérium"
-      },
-      "correct": ["A", "B", "C"],
-      "explanation": "Metropolisovo kritérium patří do Simulated Annealing."
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "ANN je inspirována vážením (synapse), součtem (soma) a aktivací (prahování)."
+  },
+  {
+    "id": 67,
+    "topic": "Neuron – výstup",
+    "question": "Vyberte správná tvrzení o akčním potenciálu vs výstupu umělého neuronu.",
+    "options": {
+      "A": "Akční potenciál je „všechno nebo nic“ impuls po překročení prahu",
+      "B": "Informace v biologii je často kódována frekvencí spikeů",
+      "C": "Výstup umělého neuronu je často reálné číslo (např. 0.75)",
+      "D": "Umělý neuron vždy produkuje jen 0 nebo 1",
+      "E": "Výstup umělého neuronu může reprezentovat aktivitu nebo pravděpodobnost"
     },
-    {
-      "id": 36,
-      "topic": "GA parametry",
-      "question": "Jaký vliv mají parametry N, Pc, Pm a elitismus? (vyberte správně)",
-      "options": {
-        "A": "Větší N zvyšuje diverzitu, ale zpomaluje výpočet",
-        "B": "Pc typicky podporuje exploataci (kombinaci dobrých řešení)",
-        "C": "Pm zvyšuje exploraci",
-        "D": "Elitismus chrání nejlepší jedince před ztrátou"
-      },
-      "correct": ["A", "B", "C", "D"],
-      "explanation": "Klasické chování GA parametrů (příliš velké Pm může dělat téměř náhodné hledání)."
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Biologie: spike; ANN: spojitý výstup (dle aktivace)."
+  },
+  {
+    "id": 68,
+    "topic": "Formální neuron",
+    "question": "Vyberte správná tvrzení o formálním neuronu (McCulloch-Pitts) a roli w, b, aktivace.",
+    "options": {
+      "A": "Neuron počítá vážený součet vstupů a přičte bias",
+      "B": "Váhy určují důležitost vstupů",
+      "C": "Bias posouvá prahování/aktivaci",
+      "D": "Aktivační funkce zavádí nelinearitu",
+      "E": "Neuron vždy ignoruje bias"
     },
-    {
-      "id": 37,
-      "topic": "Permutace (TSP)",
-      "question": "Pro permutační úlohy (TSP) se nepoužívá klasické křížení, protože…",
-      "options": {
-        "A": "vznikaly by duplicity měst",
-        "B": "porušila by se platná permutace",
-        "C": "nešlo by použít mutace",
-        "D": "neexistuje fitness"
-      },
-      "correct": ["A", "B"],
-      "explanation": "U permutací musí být každý prvek právě jednou; klasické crossover to často poruší."
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "y = f(Σ w_i x_i + b)."
+  },
+  {
+    "id": 69,
+    "topic": "Aktivace",
+    "question": "Vyberte správná tvrzení o aktivačních funkcích.",
+    "options": {
+      "A": "Step (skoková) dává výstup 0/1 dle prahu",
+      "B": "Sigmoid mapuje do (0,1)",
+      "C": "tanh mapuje do (-1,1)",
+      "D": "ReLU je f(x)=max(0,x)",
+      "E": "ReLU mapuje do (-1,1)"
     },
-    {
-      "id": 38,
-      "topic": "Permutace (TSP)",
-      "question": "Specifické operátory křížení pro permutační úlohy jsou…",
-      "options": {
-        "A": "OX (Order Crossover)",
-        "B": "PMX (Partially Mapped Crossover)",
-        "C": "Jednobodové křížení",
-        "D": "Aritmetické křížení"
-      },
-      "correct": ["A", "B"],
-      "explanation": "OX zachová pořadí a doplní chybějící; PMX mapuje úseky mezi rodiči."
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "ReLU nuluje záporné, pro kladné je lineární."
+  },
+  {
+    "id": 70,
+    "topic": "Logické funkce",
+    "question": "Vyberte správná tvrzení o tom, co zvládne jeden formální neuron (lineární separabilita).",
+    "options": {
+      "A": "Dokáže AND",
+      "B": "Dokáže OR",
+      "C": "Dokáže NOT",
+      "D": "Dokáže XOR bez skryté vrstvy",
+      "E": "Vyžaduje lineární separabilitu tříd"
     },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "XOR není lineárně separabilní."
+  },
+  {
+    "id": 71,
+    "topic": "Perceptron",
+    "question": "Vyberte správná tvrzení o Rosenblattově perceptronu a lineární separabilitě.",
+    "options": {
+      "A": "Perceptron řeší pouze lineárně separabilní úlohy",
+      "B": "Používá skokovou aktivační funkci",
+      "C": "Dělící hranice je přímka (2D) / nadrovina (vyšší dimenze)",
+      "D": "Perceptron vždy vyřeší XOR",
+      "E": "Učí se úpravou vah podle chyby"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "XOR je klasický kontra-příklad perceptronu."
+  },
+  {
+    "id": 72,
+    "topic": "ADALINE",
+    "question": "Vyberte správná tvrzení o ADALINE a rozdílu oproti perceptronu.",
+    "options": {
+      "A": "Při učení používá lineární výstup (vážený součet) před prahováním",
+      "B": "Minimalizuje spojitou chybu (např. MSE) pomocí LMS/Delta pravidla",
+      "C": "Používá pouze skokový výstup i pro výpočet chyby",
+      "D": "Je citlivý na lokální minima kvůli nekonvexní chybě u lineárního modelu",
+      "E": "Je to adaptivní lineární neuron"
+    },
+    "correct": ["A", "B", "E"],
+    "explanation": "ADALINE optimalizuje spojitou chybu nad lineárním výstupem."
+  },
+  {
+    "id": 73,
+    "topic": "ADALINE – konvexita",
+    "question": "Vyberte správná tvrzení o konvexním chybovém povrchu ADALINE.",
+    "options": {
+      "A": "Kvadratická chyba u lineárního modelu je konvexní",
+      "B": "Konvexita znamená jediné globální minimum (bez lokálních minim)",
+      "C": "Gradientní sestup u konvexní funkce může konvergovat do globálního minima",
+      "D": "Konvexní povrch má nekonečně lokálních minim",
+      "E": "Konvexita závisí na tom, že pro chybu se používá lineární výstup"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Kvadratická ztráta s lineárním modelem = „parabola“."
+  },
+  {
+    "id": 74,
+    "topic": "MLP",
+    "question": "Vyberte správná tvrzení o vícevrstvé síti (MLP) a překonání omezení perceptronu.",
+    "options": {
+      "A": "MLP obsahuje alespoň jednu skrytou vrstvu",
+      "B": "Skryté vrstvy s nelinearitou umožní řešit XOR",
+      "C": "MLP je univerzální aproximátor (za určitých podmínek)",
+      "D": "MLP nemůže reprezentovat nelineární funkce",
+      "E": "Nelinearitu typicky zajišťují aktivační funkce"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Skryté vrstvy + nelinearita → mnohem vyšší expresivita."
+  },
+  {
+    "id": 75,
+    "topic": "MLP architektura",
+    "question": "Vyberte správná tvrzení o architektuře MLP.",
+    "options": {
+      "A": "Vstupní vrstva typicky jen předává data dál",
+      "B": "Skryté vrstvy transformují příznaky do latentního prostoru",
+      "C": "Výstupní vrstva poskytuje finální predikci",
+      "D": "MLP musí mít vždy přesně jednu skrytou vrstvu",
+      "E": "Nelinearita se typicky používá ve skrytých vrstvách"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "MLP může být mělké i hluboké."
+  },
+  {
+    "id": 76,
+    "topic": "Backprop",
+    "question": "Vyberte správná tvrzení o principu backpropagation.",
+    "options": {
+      "A": "Je to efektivní výpočet gradientu chybové funkce",
+      "B": "Používá řetízkové pravidlo derivací",
+      "C": "Má dopředný průchod (výpočet výstupu a chyby)",
+      "D": "Má zpětný průchod (šíření chyby zpět přes vrstvy)",
+      "E": "Nahrazuje potřebu ztrátové funkce"
+    },
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Backprop počítá gradienty; loss je stále potřeba."
+  },
+  {
+    "id": 77,
+    "topic": "GD a learning rate",
+    "question": "Vyberte správná tvrzení o vztahu backpropagation, gradientního sestupu a learning rate.",
+    "options": {
+      "A": "Backprop počítá gradienty",
+      "B": "Gradientní sestup používá gradienty k aktualizaci vah",
+      "C": "Learning rate určuje velikost kroku aktualizace",
+      "D": "Příliš velký learning rate může způsobit divergenční chování",
+      "E": "Learning rate je vždy učený parametr sítě"
+    },
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "LR je typicky hyperparametr."
+  },
+  {
+    "id": 78,
+    "topic": "Loss funkce",
+    "question": "Vyberte správná tvrzení o ztrátové funkci (loss) a příkladech.",
+    "options": {
+      "A": "Loss měří rozdíl mezi predikcí a skutečností",
+      "B": "MSE je typická pro regresi",
+      "C": "Cross-entropy je typická pro klasifikaci",
+      "D": "Loss se nevyužívá při tréninku",
+      "E": "Cross-entropy pracuje s pravděpodobnostmi tříd"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Loss je optimalizovaná veličina při učení."
+  },
+  {
+    "id": 79,
+    "topic": "Kapacita a data",
+    "question": "Vyberte správná tvrzení o vlivu hloubky/šířky/aktivace/datasetu.",
+    "options": {
+      "A": "Větší síť má vyšší kapacitu, ale vyšší riziko overfittingu",
+      "B": "Sigmoid ve velmi hlubokých sítích může vést k vanishing gradient",
+      "C": "ReLU často pomáhá proti mizení gradientu v kladné části",
+      "D": "Malý dataset obvykle snižuje riziko overfittingu",
+      "E": "Kvalita/velikost datasetu ovlivňuje generalizaci"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Malý dataset naopak overfitting zvyšuje."
+  },
+  {
+    "id": 80,
+    "topic": "Batch vs SGD",
+    "question": "Vyberte správná tvrzení o batch, mini-batch a online (SGD) učení.",
+    "options": {
+      "A": "Batch aktualizuje váhy po průchodu celým datasetem",
+      "B": "Online/SGD aktualizuje váhy po každém vzorku",
+      "C": "Mini-batch je kompromis a praxe-standard",
+      "D": "Batch má obvykle největší šum v gradientu",
+      "E": "Mini-batch se dobře paralelizuje na GPU"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "SGD má největší šum; mini-batch je stabilnější."
+  },
 
-    {
-      "id": 39,
-      "topic": "SA",
-      "question": "Metropolisovo kritérium v Simulated Annealing umožňuje…",
-      "options": {
-        "A": "vždy odmítnout horší řešení",
-        "B": "občas přijmout horší řešení s pravděpodobností závislou na teplotě",
-        "C": "zaručit globální optimum v konečném čase",
-        "D": "vybírat uzel s nejmenším f(n)"
-      },
-      "correct": ["B"],
-      "explanation": "Díky tomu SA umí „vyskočit“ z lokálního minima."
+  {
+    "id": 81,
+    "topic": "RBF",
+    "question": "Vyberte správná tvrzení o RBF sítích a roli radiální funkce.",
+    "options": {
+      "A": "Aktivace neuronu závisí na vzdálenosti vstupu od centra",
+      "B": "Radiální funkce bývá často Gaussova",
+      "C": "RBF neuron reaguje silně v okolí svého centra (lokálně)",
+      "D": "RBF je typicky hluboká síť s mnoha skrytými vrstvami",
+      "E": "RBF má lokální aproximační schopnost"
     },
-    {
-      "id": 40,
-      "topic": "SA",
-      "question": "Teplotní plán (cooling schedule) – správně je…",
-      "options": {
-        "A": "Vysoká teplota = více explorace",
-        "B": "Nízká teplota = více exploatace (lokální chování)",
-        "C": "Rychlé ochlazování vždy zlepší kvalitu výsledku",
-        "D": "Pomalé ochlazování bývá kvalitnější, ale trvá déle"
-      },
-      "correct": ["A", "B", "D"],
-      "explanation": "Rychlé ochlazení (quenching) zvyšuje riziko uvíznutí v lokálním minimu."
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "RBF modeluje lokální „zvonové“ reakce."
+  },
+  {
+    "id": 82,
+    "topic": "RBF topologie",
+    "question": "Vyberte správná tvrzení o topologii RBF sítě.",
+    "options": {
+      "A": "Skrytá vrstva obsahuje RBF neurony s centry a šířkami",
+      "B": "Výstupní vrstva je často lineární kombinace výstupů RBF",
+      "C": "Vstupní vrstva předává vektor vstupu dál",
+      "D": "RBF typicky vyžaduje rekurenci (RNN)",
+      "E": "RBF síť má obvykle jednu skrytou vrstvu"
     },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "RBF: vstup → RBF skrytá → lineární výstup."
+  },
+  {
+    "id": 83,
+    "topic": "RBF + k-means",
+    "question": "Vyberte správná tvrzení o využití k-means v RBF sítích.",
+    "options": {
+      "A": "k-means se používá k nalezení center RBF neuronů",
+      "B": "Jde o fázi učení bez učitele (unsupervised)",
+      "C": "Shluky reprezentují oblasti vstupního prostoru pro jednotlivé neurony",
+      "D": "k-means přímo učí výstupní váhy lineární vrstvy",
+      "E": "Cílem je pokrýt prostor dat vhodnými centry"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Centra se často volí shlukováním, váhy se učí až potom."
+  },
+  {
+    "id": 84,
+    "topic": "RBF učení",
+    "question": "Vyberte správná tvrzení o dvoufázovém učení RBF sítě.",
+    "options": {
+      "A": "Nejprve se určí centra/šířky (často unsupervised)",
+      "B": "Poté se učí jen výstupní váhy (supervised)",
+      "C": "Výstupní váhy lze někdy spočítat analyticky (pseudoinverzí)",
+      "D": "V druhé fázi se mění centra i šířky i výstupní váhy současně",
+      "E": "Dvoufázový postup bývá rychlý"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Centra fix; výstupní lineární část se učí rychle."
+  },
+  {
+    "id": 85,
+    "topic": "k-means",
+    "question": "Vyberte správná tvrzení o algoritmu k-means.",
+    "options": {
+      "A": "Je to iterativní shlukovací metoda do k shluků",
+      "B": "Středy (centroidy) se přepočítají jako průměr bodů ve shluku",
+      "C": "Středy se na začátku volí náhodně (typicky)",
+      "D": "Přiřazení bodů je k nejbližšímu centroidu",
+      "E": "k-means vyžaduje labely tříd"
+    },
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "k-means je unsupervised clustering."
+  },
+  {
+    "id": 86,
+    "topic": "RBF vs MLP",
+    "question": "Vyberte správná tvrzení při porovnání RBF a MLP.",
+    "options": {
+      "A": "RBF bývá lokální model (dobrá interpolace, horší extrapolace)",
+      "B": "MLP je globálnější model a často lépe extrapoluje",
+      "C": "RBF má typicky jednu skrytou vrstvu, MLP může být hluboké",
+      "D": "RBF se často učí hybridně (rychleji), MLP backpropagací (iterativně)",
+      "E": "MLP se nedá použít ve vyšších dimenzích"
+    },
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "RBF lokální, MLP globální; učení se liší."
+  },
 
-    {
-      "id": 41,
-      "topic": "DE",
-      "question": "Differential Evolution (DE) je typicky určená pro…",
-      "options": {
-        "A": "spojitou optimalizaci (reálné vektory)",
-        "B": "pouze binární řetězce",
-        "C": "pouze permutace",
-        "D": "jen učení neuronových sítí"
-      },
-      "correct": ["A"],
-      "explanation": "DE generuje nové kandidáty přičítáním váženého rozdílu vektorů."
+  {
+    "id": 87,
+    "topic": "SOM",
+    "question": "Vyberte správná tvrzení o SOM (Kohonenovy mapy).",
+    "options": {
+      "A": "SOM jsou sítě pro učení bez učitele (unsupervised)",
+      "B": "Používají se pro redukci dimenze a vizualizaci dat",
+      "C": "SOM jsou typicky rekurentní sítě pro sekvence",
+      "D": "SOM provádí shlukovou analýzu v mapě",
+      "E": "SOM mapuje data často do 2D mřížky neuronů"
     },
-    {
-      "id": 42,
-      "topic": "DE parametry",
-      "question": "V DE/rand/1 parametry typicky znamenají…",
-      "options": {
-        "A": "F = faktor zesílení (velikost kroku mutace)",
-        "B": "CR = pravděpodobnost křížení",
-        "C": "NP = velikost populace",
-        "D": "Pc = pravděpodobnost křížení v GA"
-      },
-      "correct": ["A", "B", "C"],
-      "explanation": "Pc je typicky parametr GA; v DE se běžně používá CR."
+    "correct": ["A", "B", "D", "E"],
+    "explanation": "SOM zachovává topologii a umožňuje vizualizovat vztahy."
+  },
+  {
+    "id": 88,
+    "topic": "SOM architektura",
+    "question": "Vyberte správná tvrzení o architektuře Kohonenovy sítě.",
+    "options": {
+      "A": "Mapová (konkurenční) vrstva je uspořádána v mřížce (často 2D)",
+      "B": "Každý neuron má váhový vektor stejné dimenze jako vstup",
+      "C": "Vstupní vrstva odpovídá dimenzi dat",
+      "D": "Neurony v mapě jsou typicky plně propojené dopředně jako CNN",
+      "E": "SOM nepotřebuje žádné váhy"
     },
+    "correct": ["A", "B", "C"],
+    "explanation": "SOM pracuje s váhovými vektory neuronů v mapě."
+  },
+  {
+    "id": 89,
+    "topic": "SOM – BMU",
+    "question": "Vyberte správná tvrzení o BMU (Best Matching Unit).",
+    "options": {
+      "A": "BMU je neuron s nejpodobnějším váhovým vektorem k aktuálnímu vstupu",
+      "B": "Podobnost se často měří eukleidovskou vzdáleností",
+      "C": "BMU je „vítěz“ pro daný vstup",
+      "D": "BMU je vždy neuron s největší náhodnou hodnotou",
+      "E": "BMU se používá v konkurenčním učení SOM"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "BMU je nejbližší neuron v mapě."
+  },
+  {
+    "id": 90,
+    "topic": "SOM – WTA",
+    "question": "Vyberte správná tvrzení o Winner-Takes-All a funkci sousedství v SOM.",
+    "options": {
+      "A": "Učí se vítěz (BMU) a jeho okolí",
+      "B": "Ostatní neurony se učí stejně silně jako BMU",
+      "C": "Funkce sousedství určuje sílu učení v okolí BMU",
+      "D": "Sousedství se během učení typicky zmenšuje",
+      "E": "WTA souvisí s laterální inhibicí (vítěz potlačí ostatní)"
+    },
+    "correct": ["A", "C", "D", "E"],
+    "explanation": "Na začátku se učí širší okolí, později hlavně BMU."
+  },
+  {
+    "id": 91,
+    "topic": "SOM – topologie",
+    "question": "Vyberte správná tvrzení o topologickém zachování v SOM.",
+    "options": {
+      "A": "Podobné vstupy se mapují na blízké neurony v mřížce",
+      "B": "SOM se snaží zachovat strukturu dat",
+      "C": "Topologické zachování znamená, že podobné vstupy budou v mapě daleko od sebe",
+      "D": "Díky topologii lze vizualizovat podobnosti mezi vzory",
+      "E": "Topologické zachování je typické pro supervised klasifikaci"
+    },
+    "correct": ["A", "B", "D"],
+    "explanation": "SOM zachovává sousedství (podobnost) ve 2D mapě."
+  },
 
-    {
-      "id": 43,
-      "topic": "PSO",
-      "question": "V Particle Swarm Optimization částice upravuje pohyb podle…",
-      "options": {
-        "A": "pBest (osobní nejlepší pozice)",
-        "B": "gBest (globální nejlepší pozice hejna)",
-        "C": "Metropolisova kritéria",
-        "D": "k-means clusteringu"
-      },
-      "correct": ["A", "B"],
-      "explanation": "PSO je inspirované hejnem – kombinace vlastní zkušenosti a sociální informace."
+  {
+    "id": 92,
+    "topic": "DNN",
+    "question": "Vyberte správná tvrzení o hluboké neuronové síti (DNN) vs mělké.",
+    "options": {
+      "A": "DNN má více než jednu skrytou vrstvu",
+      "B": "Hluboké sítě se učí hierarchii příznaků",
+      "C": "Mělká síť (1 skrytá vrstva) nikdy nemůže aproximovat složité funkce",
+      "D": "DNN se často používají pro obraz/řeč",
+      "E": "DNN mohou mít desítky až stovky vrstev"
     },
-
-    {
-      "id": 44,
-      "topic": "ACO",
-      "question": "Ant Colony Optimization používá…",
-      "options": {
-        "A": "feromonovou stopu (pozitivní zpětná vazba)",
-        "B": "odpařování feromonu (negativní zpětná vazba proti uvíznutí)",
-        "C": "gradientní sestup",
-        "D": "jen deterministický výběr"
-      },
-      "correct": ["A", "B"],
-      "explanation": "Kombinuje feromon (zkušenost) a heuristiku (např. vzdálenost/viditelnost)."
+    "correct": ["A", "B", "D", "E"],
+    "explanation": "Hluboké sítě se učí postupně složitější reprezentace."
+  },
+  {
+    "id": 93,
+    "topic": "Vanishing/Exploding gradient",
+    "question": "Vyberte správná tvrzení o vanishing a exploding gradient.",
+    "options": {
+      "A": "Vanishing gradient = gradient se při backprop přes mnoho vrstev zmenšuje",
+      "B": "Exploding gradient = gradienty mohou růst a způsobit divergenční chování",
+      "C": "Vanishing může zastavit učení prvních vrstev",
+      "D": "Exploding gradient se projeví stabilními a malými změnami vah",
+      "E": "Oba problémy souvisí s hloubkou sítě"
     },
-
-    {
-      "id": 45,
-      "topic": "Vícekriteriální opt.",
-      "question": "Pareto-front je…",
-      "options": {
-        "A": "množina nedominovaných řešení (kompromisů)",
-        "B": "jediné nejlepší řešení podle všech kritérií",
-        "C": "seznam penalizovaných řešení",
-        "D": "výsledek BFS"
-      },
-      "correct": ["A"],
-      "explanation": "Ve vícekriteriální optimalizaci obvykle neexistuje jediné „nejlepší“ řešení."
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Hloubka + nevhodné aktivace/inicializace mohou gradienty zničit."
+  },
+  {
+    "id": 94,
+    "topic": "Řešení problémů hloubky",
+    "question": "Vyberte techniky, které pomáhají řešit problémy hloubky (vanishing/exploding).",
+    "options": {
+      "A": "ReLU (vhodnější než sigmoid/tanh v hlubokých sítích)",
+      "B": "Batch Normalization",
+      "C": "Skip connections (ResNet)",
+      "D": "Xavier/He inicializace",
+      "E": "Vynucení sigmoid ve všech vrstvách"
     },
-
-    {
-      "id": 46,
-      "topic": "NN základy",
-      "question": "Parametry vs hyperparametry (vyberte správně).",
-      "options": {
-        "A": "Váhy a biasy jsou parametry učené během tréninku",
-        "B": "Learning rate je hyperparametr",
-        "C": "Počet vrstev je hyperparametr",
-        "D": "Parametry se volí ručně a během tréninku se nemění"
-      },
-      "correct": ["A", "B", "C"],
-      "explanation": "Parametry se učí; hyperparametry nastavuje člověk před tréninkem."
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Normalizace, skipy a správná inicializace stabilizují gradienty."
+  },
+  {
+    "id": 95,
+    "topic": "Regularizace",
+    "question": "Vyberte správná tvrzení o regularizaci a metodách L1/L2, dropout, early stopping.",
+    "options": {
+      "A": "Regularizace pomáhá proti overfittingu",
+      "B": "L1/L2 přidává penalizaci velikosti vah do loss",
+      "C": "Dropout během tréninku náhodně vypíná neurony",
+      "D": "Early stopping zastaví trénink, když validační chyba začne růst",
+      "E": "Regularizace vždy zhorší generalizaci"
     },
-
-    {
-      "id": 47,
-      "topic": "Neuron",
-      "question": "Formální neuron (McCulloch–Pitts): role váhy, biasu a aktivace je…",
-      "options": {
-        "A": "Váhy určují důležitost vstupů",
-        "B": "Bias posouvá práh/aktivaci (umožní aktivitu i při nulových vstupech)",
-        "C": "Aktivační funkce zavádí nelinearitu",
-        "D": "Aktivační funkce je vždy kroková"
-      },
-      "correct": ["A", "B", "C"],
-      "explanation": "Bez nelinearity by i více vrstev dalo jen lineární transformaci."
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Cílem je zlepšit generalizaci na neviděných datech."
+  },
+  {
+    "id": 96,
+    "topic": "Softmax + Cross-entropy",
+    "question": "Vyberte správná tvrzení o Softmaxu a křížové entropii.",
+    "options": {
+      "A": "Softmax převádí výstupy na pravděpodobnosti se součtem 1",
+      "B": "Cross-entropy měří rozdíl mezi predikovanou distribucí a skutečnou třídou",
+      "C": "Cross-entropy silně penalizuje sebevědomé špatné odpovědi",
+      "D": "Softmax se typicky používá ve výstupu pro klasifikaci",
+      "E": "Softmax je vhodný jako loss funkce"
     },
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Softmax je aktivace, cross-entropy je loss."
+  },
 
-    {
-      "id": 48,
-      "topic": "Aktivace",
-      "question": "Které funkce jsou typické aktivační funkce?",
-      "options": {
-        "A": "Sigmoid",
-        "B": "tanh",
-        "C": "ReLU",
-        "D": "Dijkstrův algoritmus"
-      },
-      "correct": ["A", "B", "C"],
-      "explanation": "Dijkstra je algoritmus pro grafy, ne aktivační funkce."
+  {
+    "id": 97,
+    "topic": "CNN",
+    "question": "Vyberte správná tvrzení o CNN a problému oproti plně propojeným sítím.",
+    "options": {
+      "A": "CNN jsou specializované na mřížková data (např. obrázky)",
+      "B": "CNN snižují počet parametrů oproti dense na pixelech",
+      "C": "CNN pomáhají s translační invariancí (detekce posunu objektu)",
+      "D": "CNN vyžadují, aby vstup byl vždy 1D vektor",
+      "E": "Plně propojené sítě mají pro obrázky často explozi parametrů"
     },
-
-    {
-      "id": 49,
-      "topic": "Perceptron",
-      "question": "Jeden perceptron dokáže realizovat…",
-      "options": {
-        "A": "AND",
-        "B": "OR",
-        "C": "NOT",
-        "D": "XOR"
-      },
-      "correct": ["A", "B", "C"],
-      "explanation": "XOR není lineárně separabilní, takže jeden perceptron ho neumí."
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Lokální filtry + sdílení vah dramaticky zmenší počet parametrů."
+  },
+  {
+    "id": 98,
+    "topic": "Konvoluce",
+    "question": "Vyberte správná tvrzení o konvoluci, filtru (kernel) a mapě příznaků.",
+    "options": {
+      "A": "Filtr (kernel) je malá matice vah, která klouže po vstupu",
+      "B": "Konvoluce počítá skalární součin filtru s lokálním oknem",
+      "C": "Mapa příznaků ukazuje, kde byl vzor filtrem detekován",
+      "D": "Filtry jsou pevně dané a neučí se",
+      "E": "Filtr může detekovat např. hrany/rohy"
     },
-
-    {
-      "id": 50,
-      "topic": "MLP",
-      "question": "MLP překonává omezení perceptronu tím, že…",
-      "options": {
-        "A": "má skryté vrstvy",
-        "B": "používá nelineární aktivace",
-        "C": "dokáže řešit lineárně neseparabilní úlohy (např. XOR)",
-        "D": "nepotřebuje trénink"
-      },
-      "correct": ["A", "B", "C"],
-      "explanation": "Skryté vrstvy + nelinearita dávají mnohem vyšší vyjadřovací schopnost."
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Filtry se učí během tréninku a vytváří feature mapy."
+  },
+  {
+    "id": 99,
+    "topic": "Sdílení vah",
+    "question": "Vyberte správná tvrzení o sdílení vah a lokální receptivní oblasti v CNN.",
+    "options": {
+      "A": "Lokální receptivní oblast znamená, že neuron vidí jen lokální okolí",
+      "B": "Sdílení vah = stejný filtr se použije na všech pozicích obrazu",
+      "C": "Sdílení vah výrazně snižuje počet parametrů",
+      "D": "Bez sdílení vah by CNN měla více parametrů",
+      "E": "Sdílení vah znemožňuje detekci posunutých objektů"
     },
-
-    {
-      "id": 51,
-      "topic": "Backprop",
-      "question": "Backpropagation je…",
-      "options": {
-        "A": "algoritmus pro efektivní výpočet gradientu chyby (řetízkové pravidlo)",
-        "B": "strategie pro výběr uzlu v A*",
-        "C": "metoda na výpočet OPEN a CLOSED",
-        "D": "přímo optimalizační algoritmus jako takový"
-      },
-      "correct": ["A"],
-      "explanation": "Backprop počítá gradienty; samotná aktualizace vah se dělá např. gradientním sestupem."
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Sdílení vah naopak podporuje detekci vzoru kdekoliv v obrazu."
+  },
+  {
+    "id": 100,
+    "topic": "Pooling/Stride/Padding",
+    "question": "Vyberte správná tvrzení o poolingu, stride a paddingu.",
+    "options": {
+      "A": "Pooling (např. max) zmenšuje rozměr mapy (downsampling)",
+      "B": "Stride je krok posunu filtru; větší stride zmenšuje výstup",
+      "C": "Padding přidává okraje (např. nuly) pro zachování rozměru",
+      "D": "Pooling zvyšuje invarianci vůči malému posunu",
+      "E": "Padding vždy zmenšuje vstupní obraz"
     },
-
-    {
-      "id": 52,
-      "topic": "Gradientní sestup",
-      "question": "Vztah backpropagation a gradientního sestupu + learning rate:",
-      "options": {
-        "A": "Backprop spočítá gradienty",
-        "B": "Gradientní sestup použije gradienty k aktualizaci vah",
-        "C": "Learning rate určuje velikost kroku aktualizace",
-        "D": "Příliš velký learning rate může způsobit nestabilitu"
-      },
-      "correct": ["A", "B", "C", "D"],
-      "explanation": "LR příliš malý = pomalé učení, příliš velký = oscilace/divergence."
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Padding často pomáhá držet rozměr, pooling redukuje rozměry."
+  },
+  {
+    "id": 101,
+    "topic": "CNN architektury",
+    "question": "Vyberte správná tvrzení o typické architektuře CNN a příkladech.",
+    "options": {
+      "A": "Typický blok: Conv → aktivace (ReLU) → pooling",
+      "B": "Na konci bývá Flatten a dense vrstvy pro klasifikaci",
+      "C": "LeNet, AlexNet, VGG, ResNet jsou známé CNN architektury",
+      "D": "ResNet používá skip connections (reziduální spojení)",
+      "E": "CNN jsou vždy bez jakýchkoliv konvolucí"
     },
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "CNN staví hierarchii příznaků přes konvoluční bloky."
+  },
 
-    {
-      "id": 53,
-      "topic": "Loss",
-      "question": "Které loss funkce jsou typické pro regresi vs klasifikaci?",
-      "options": {
-        "A": "MSE pro regresi",
-        "B": "Cross-Entropy pro klasifikaci",
-        "C": "MSE pro klasifikaci je vždy nejlepší",
-        "D": "Cross-Entropy pro regresi je standard"
-      },
-      "correct": ["A", "B"],
-      "explanation": "Základní dvojice: MSE (regrese) a křížová entropie (klasifikace)."
+  {
+    "id": 102,
+    "topic": "RNN",
+    "question": "Vyberte správná tvrzení o RNN a jejich omezeních.",
+    "options": {
+      "A": "RNN zpracovávají sekvence krok za krokem",
+      "B": "RNN přenáší informaci pomocí skrytého stavu",
+      "C": "RNN trpí vanishing/exploding gradient a dlouhými závislostmi",
+      "D": "RNN výpočet je snadno plně paralelizovatelný přes časové kroky",
+      "E": "Sekvenční zpracování omezuje paralelizaci"
     },
-
-    {
-      "id": 54,
-      "topic": "Batch/Mini-batch/SGD",
-      "question": "Vyberte správná tvrzení o batch vs mini-batch vs online (SGD).",
-      "options": {
-        "A": "Batch aktualizuje váhy až po průchodu celým datasetem",
-        "B": "SGD aktualizuje po každém vzorku",
-        "C": "Mini-batch je kompromis a standard v praxi",
-        "D": "SGD má typicky více šumu/oscilační gradient"
-      },
-      "correct": ["A", "B", "C", "D"],
-      "explanation": "Mini-batch umožňuje stabilitu i paralelizaci."
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "RNN je sekvenční, což brzdí paralelizaci."
+  },
+  {
+    "id": 103,
+    "topic": "LSTM/GRU",
+    "question": "Vyberte správná tvrzení o LSTM a GRU.",
+    "options": {
+      "A": "LSTM zavádí paměťovou buňku (cell state)",
+      "B": "LSTM používá brány (vstupní, výstupní, zapomínací) pro řízení toku informací",
+      "C": "LSTM pomáhá s dlouhodobými závislostmi",
+      "D": "GRU je typicky jednodušší varianta s branami",
+      "E": "LSTM a GRU jsou konvoluční sítě pro obrázky"
     },
-
-    {
-      "id": 55,
-      "topic": "RBF",
-      "question": "RBF sítě: správně je…",
-      "options": {
-        "A": "Aktivace závisí na vzdálenosti vstupu od centra neuronu",
-        "B": "Často se používá Gaussova radiální funkce",
-        "C": "Výstupní vrstva je typicky lineární kombinace výstupů RBF neuronů",
-        "D": "RBF je vždy hluboká síť s desítkami vrstev"
-      },
-      "correct": ["A", "B", "C"],
-      "explanation": "RBF bývá „mělká“ (jedna skrytá RBF vrstva) s lokální reakcí."
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Brány řeší problém dlouhých závislostí."
+  },
+  {
+    "id": 104,
+    "topic": "Transformer",
+    "question": "Vyberte správná tvrzení o Transformeru a self-attention.",
+    "options": {
+      "A": "Transformer je založen na mechanismu attention (bez rekurence)",
+      "B": "Self-attention umožňuje každému tokenu vážit relevantnost ostatních tokenů",
+      "C": "Odstranění rekurence umožňuje lepší paralelizaci",
+      "D": "Transformer vyžaduje sekvenční výpočet jako RNN",
+      "E": "Self-attention počítá váhy relevance mezi tokeny"
     },
-
-    {
-      "id": 56,
-      "topic": "RBF učení",
-      "question": "Dvoufázové učení RBF sítě typicky znamená…",
-      "options": {
-        "A": "Nejprve bez učitele najít centra (např. k-means)",
-        "B": "Poté s učitelem dopočítat váhy výstupní vrstvy",
-        "C": "Nejprve backprop přes mnoho vrstev",
-        "D": "V druhé fázi se centra stále náhodně mění"
-      },
-      "correct": ["A", "B"],
-      "explanation": "Centra se často fixují a rychle se dopočítají výstupní váhy (např. pseudoinverzí)."
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Attention umožní paralelní práci se sekvencí."
+  },
+  {
+    "id": 105,
+    "topic": "RNN vs Transformer",
+    "question": "Vyberte správná tvrzení při porovnání RNN/LSTM a Transformerů.",
+    "options": {
+      "A": "RNN je sekvenční, Transformer je výrazně paralelizovatelnější",
+      "B": "Transformer lépe zachycuje dlouhé závislosti díky self-attention",
+      "C": "Transformer má často vyšší paměťovou náročnost (např. O(n^2) attention)",
+      "D": "RNN vždy lépe škáluje na dlouhé sekvence než Transformer",
+      "E": "RNN „ztrácí“ kontext s délkou sekvence snáze než Transformer"
     },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Transformery vidí globální vztahy, ale platí pamětí."
+  },
 
-    {
-      "id": 57,
-      "topic": "SOM",
-      "question": "SOM (Kohonenovy mapy): vyberte správně.",
-      "options": {
-        "A": "Jsou to sítě pro učení bez učitele",
-        "B": "Používají se pro redukci dimenze a vizualizaci",
-        "C": "BMU je neuron nejpodobnější vstupu",
-        "D": "Učí se jen výstupní lineární vrstva"
-      },
-      "correct": ["A", "B", "C"],
-      "explanation": "SOM je topologicky uspořádaná mřížka, kde se učí vítěz a jeho okolí."
+  {
+    "id": 106,
+    "topic": "Keras API",
+    "question": "Vyberte správná tvrzení o Sequential API vs Functional API.",
+    "options": {
+      "A": "Sequential API je lineární zásobník vrstev",
+      "B": "Functional API umožní obecný graf propojení",
+      "C": "Functional API je potřeba pro více vstupů/výstupů nebo skip connections",
+      "D": "Sequential API snadno podporuje sdílené vrstvy a větvení",
+      "E": "Functional API je flexibilnější pro komplexní architektury"
     },
-
-    {
-      "id": 58,
-      "topic": "SOM",
-      "question": "Winner-Takes-All (WTA) v SOM znamená…",
-      "options": {
-        "A": "Učí se pouze BMU a jeho okolí",
-        "B": "Učí se všechny neurony stejně",
-        "C": "Vítěz potlačí ostatní (laterální inhibice)",
-        "D": "Sousedství se během učení zmenšuje"
-      },
-      "correct": ["A", "C", "D"],
-      "explanation": "Na začátku se učí širší okolí, postupně se zúží na BMU."
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Sequential je jednoduchý; Functional pro komplexní grafy."
+  },
+  {
+    "id": 107,
+    "topic": "Kroky tréninku",
+    "question": "Vyberte správné kroky definice a trénování modelu (Keras).",
+    "options": {
+      "A": "Definice architektury (vrstvy)",
+      "B": "compile() – volba loss, optimalizátoru, metrik",
+      "C": "fit() – trénink na datech",
+      "D": "evaluate() – vyhodnocení na testu bez učení",
+      "E": "export() – povinný krok před tréninkem"
     },
-
-    {
-      "id": 59,
-      "topic": "DNN",
-      "question": "Hluboká neuronová síť (DNN) se liší od mělké tím, že…",
-      "options": {
-        "A": "má více než jednu skrytou vrstvu",
-        "B": "učí se hierarchii příznaků",
-        "C": "nikdy netrpí mizícím gradientem",
-        "D": "vždy má menší kapacitu než mělká síť"
-      },
-      "correct": ["A", "B"],
-      "explanation": "DNN může trpět vanishing/exploding gradient – je to typický problém hloubky."
+    "correct": ["A", "B", "C", "D"],
+    "explanation": "Standardní pipeline: definuj → compile → fit → evaluate."
+  },
+  {
+    "id": 108,
+    "topic": "Keras nastavení",
+    "question": "Vyberte správná tvrzení o nastavování vrstev a regularizace v Keras.",
+    "options": {
+      "A": "Dense(128, activation='relu') nastaví počet neuronů a aktivaci",
+      "B": "Dropout(0.5) náhodně vypíná část neuronů během tréninku",
+      "C": "Dropout je regularizační technika",
+      "D": "activation='relu' znamená sigmoid",
+      "E": "Dropout se typicky používá jen při tréninku, ne při inferenci"
     },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Dropout zvyšuje robustnost, při testu se vypíná."
+  },
+  {
+    "id": 109,
+    "topic": "Epoch/Batch/LR",
+    "question": "Vyberte správná tvrzení o pojmech epoch, batch size a learning rate.",
+    "options": {
+      "A": "Epoch = jeden průchod celým trénovacím datasetem",
+      "B": "Batch size = počet vzorků před jednou aktualizací vah",
+      "C": "Learning rate = velikost kroku při optimalizaci",
+      "D": "Batch size je totéž co počet neuronů",
+      "E": "Learning rate se obvykle nastavuje jako hyperparametr"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Epoch/batch/LR jsou základní pojmy tréninku."
+  },
+  {
+    "id": 110,
+    "topic": "compile/fit/evaluate",
+    "question": "Vyberte správná tvrzení o metodách compile(), fit(), evaluate().",
+    "options": {
+      "A": "compile() konfiguruje proces učení (loss, optimizer, metriky)",
+      "B": "fit() spouští tréninkový cyklus (iterace přes epochy)",
+      "C": "evaluate() počítá loss/metriky na datech bez učení",
+      "D": "evaluate() mění váhy sítě",
+      "E": "fit() běžně aktualizuje váhy"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "evaluate jen vyhodnotí; fit učí."
+  },
+  {
+    "id": 111,
+    "topic": "SGD vs Adam/RMSprop",
+    "question": "Vyberte správná tvrzení o SGD vs adaptivních optimalizátorech (Adam/RMSprop).",
+    "options": {
+      "A": "SGD používá (typicky) fixní learning rate pro všechny váhy",
+      "B": "Adam/RMSprop adaptivně upravují learning rate pro každý parametr",
+      "C": "Adam/RMSprop využívají historii gradientů (např. momentum)",
+      "D": "SGD je vždy rychlejší a robustnější než Adam",
+      "E": "Adam/RMSprop bývají v praxi často rychlejší a stabilnější"
+    },
+    "correct": ["A", "B", "C", "E"],
+    "explanation": "Adaptivní metody mění efektivní krok dle historie gradientů."
+  }
 
-    {
-      "id": 60,
-      "topic": "Vanishing/Exploding",
-      "question": "Techniky řešení problémů hloubky zahrnují…",
-      "options": {
-        "A": "ReLU (místo sigmoid/tanh v hlubších sítích)",
-        "B": "Batch Normalization",
-        "C": "Skip connections (např. ResNet)",
-        "D": "Zvýšení teploty v SA"
-      },
-      "correct": ["A", "B", "C"],
-      "explanation": "ReLU/BN/ResNet pomáhají stabilitě gradientů v hlubokých sítích."
-    }
+
   ]
 }
+
