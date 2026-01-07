@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GitHub Quiz</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; max-width: 900px; margin: 24px auto; padding: 0 16px; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin: 16px 0; }
+    .meta { opacity: .7; font-size: 14px; margin-bottom: 8px; }
+    .q { font-size: 18px; font-weight: 700; margin: 8px 0 12px; }
+    .opt { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; border-radius: 10px; margin: 6px 0; border: 1px solid #eee; }
+    .opt.correct { border-color: #2e7d32; }
+    .opt.wrong { border-color: #c62828; }
+    .pill { display:inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12px; border:1px solid #ddd; }
+    button { border: 0; padding: 10px 14px; border-radius: 10px; cursor: pointer; }
+    button.primary { background: #111; color: #fff; }
+    button.secondary { background: #f3f3f3; }
+    .row { display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px; }
+    .explain { margin-top: 12px; padding: 10px 12px; background: #fafafa; border: 1px dashed #ddd; border-radius: 10px; }
+    .topbar { display:flex; justify-content: space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <h1 id="title">Kvíz</h1>
+    <div>
+      <span class="pill" id="progress">0/0</span>
+      <span class="pill" id="score">Skóre: 0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <button class="primary" id="btnCheck">Zkontrolovat</button>
+      <button class="secondary" id="btnNext">Další otázka</button>
+      <button class="secondary" id="btnReveal">Ukázat správné</button>
+      <button class="secondary" id="btnReset">Reset</button>
+    </div>
+  </div>
+
+  <div id="app"></div>
+
+<script>
+  let quiz = null;
+  let idx = 0;
+  let score = 0;
+  let answered = 0;
+
+  const elTitle = document.getElementById("title");
+  const elApp = document.getElementById("app");
+  const elProgress = document.getElementById("progress");
+  const elScore = document.getElementById("score");
+
+  function shuffleArray(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  async function loadQuiz() {
+    const res = await fetch("./quiz.json", { cache: "no-store" });
+    quiz = await res.json();
+
+    elTitle.textContent = quiz.title || "Kvíz";
+
+    if (quiz.shuffleQuestions) shuffleArray(quiz.questions);
+
+    // Prepare options order per question
+    for (const q of quiz.questions) {
+      const entries = Object.entries(q.options).map(([key, text]) => ({ key, text }));
+      if (quiz.shuffleOptions) shuffleArray(entries);
+      q._optionOrder = entries; // store order
+    }
+
+    render();
+  }
+
+  function render() {
+    const q = quiz.questions[idx];
+    elApp.innerHTML = "";
+
+    elProgress.textContent = `${idx + 1}/${quiz.questions.length}`;
+    elScore.textContent = `Skóre: ${score}/${answered}`;
+
+    const card = document.createElement("div");
+    card.className = "card";
+
+    const meta = document.createElement("div");
+    meta.className = "meta";
+    meta.textContent = `Téma: ${q.topic || "—"} • ID: ${q.id}`;
+    card.appendChild(meta);
+
+    const h = document.createElement("div");
+    h.className = "q";
+    h.textContent = q.question;
+    card.appendChild(h);
+
+    const hint = document.createElement("div");
+    hint.className = "meta";
+    hint.textContent = (q.correct?.length > 1)
+      ? "Pozor: může být více správných odpovědí (zaškrtávací)."
+      : "Jedna správná odpověď.";
+    card.appendChild(hint);
+
+    for (const opt of q._optionOrder) {
+      const row = document.createElement("label");
+      row.className = "opt";
+      row.dataset.key = opt.key;
+
+      const cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.name = "opt";
+      cb.value = opt.key;
+
+      const txt = document.createElement("div");
+      txt.innerHTML = `<b>${opt.key})</b> ${opt.text}`;
+
+      row.appendChild(cb);
+      row.appendChild(txt);
+      card.appendChild(row);
+    }
+
+    const explain = document.createElement("div");
+    explain.className = "explain";
+    explain.id = "explain";
+    explain.style.display = "none";
+    card.appendChild(explain);
+
+    elApp.appendChild(card);
+  }
+
+  function getSelectedKeys() {
+    return Array.from(document.querySelectorAll('input[name="opt"]:checked')).map(x => x.value).sort();
+  }
+
+  function mark(correctKeys, selectedKeys, showCorrectEvenIfNotSelected=false) {
+    const rows = document.querySelectorAll(".opt");
+    rows.forEach(r => {
+      r.classList.remove("correct", "wrong");
+      const key = r.dataset.key;
+      const isCorrect = correctKeys.includes(key);
+      const isSelected = selectedKeys.includes(key);
+
+      if (isSelected && isCorrect) r.classList.add("correct");
+      if (isSelected && !isCorrect) r.classList.add("wrong");
+      if (showCorrectEvenIfNotSelected && isCorrect) r.classList.add("correct");
+    });
+  }
+
+  function arraysEqual(a, b) {
+    return a.length === b.length && a.every((v, i) => v === b[i]);
+  }
+
+  document.getElementById("btnCheck").addEventListener("click", () => {
+    const q = quiz.questions[idx];
+    const selected = getSelectedKeys();
+    const correct = (q.correct || []).slice().sort();
+
+    answered += 1;
+
+    const ok = arraysEqual(selected, correct);
+    if (ok) score += 1;
+
+    mark(correct, selected, true);
+
+    const ex = document.getElementById("explain");
+    ex.style.display = "block";
+    ex.innerHTML = `<b>${ok ? "✅ Správně." : "❌ Špatně."}</b><br>
+      Správně: <b>${correct.join(", ")}</b><br><br>
+      ${q.explanation || ""}`;
+
+    elScore.textContent = `Skóre: ${score}/${answered}`;
+  });
+
+  document.getElementById("btnReveal").addEventListener("click", () => {
+    const q = quiz.questions[idx];
+    const correct = (q.correct || []).slice().sort();
+    mark(correct, getSelectedKeys(), true);
+
+    const ex = document.getElementById("explain");
+    ex.style.display = "block";
+    ex.innerHTML = `<b>Správné odpovědi:</b> ${correct.join(", ")}<br><br>${q.explanation || ""}`;
+  });
+
+  document.getElementById("btnNext").addEventListener("click", () => {
+    idx = (idx + 1) % quiz.questions.length;
+    render();
+  });
+
+  document.getElementById("btnReset").addEventListener("click", () => {
+    idx = 0; score = 0; answered = 0;
+    if (quiz.shuffleQuestions) shuffleArray(quiz.questions);
+    render();
+  });
+
+  loadQuiz();
+</script>
+</body>
+</html>
